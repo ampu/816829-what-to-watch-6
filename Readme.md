@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Андрей Акимутин](https://up.htmlacademy.ru/react/6/user/816829).
-* Наставник: `Неизвестно`.
+* Наставник: [Андрей Карякин](https://up.htmlacademy.ru/react/6/user/133011).
 
 ---
 
