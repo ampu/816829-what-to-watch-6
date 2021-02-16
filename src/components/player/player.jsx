@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import durationPlugin from 'dayjs/plugin/duration';
 
-import {formatDuration} from '../../data/util/movie';
+import {formatDuration} from '../../utils/movie-util';
 
-import PauseButton from './pause-button';
-import PlayButton from './play-button';
-import FullscreenButton from './fullscreen-button';
+import PauseButton from '../pause-button/pause-button';
+import PlayButton from '../play-button/play-button';
+import FullscreenButton from '../fullscreen-button/fullscreen-button';
 
 
 const Player = ({movie = {}, state = {}}) => {
@@ -30,7 +30,7 @@ const Player = ({movie = {}, state = {}}) => {
         </div>
 
         <div className="player__controls-row">
-          {isPlaying ? <PauseButton/> : <PlayButton/>}
+          {isPlaying ? <PauseButton/> : <PlayButton className="player__play"/>}
 
           <div className="player__name">{title}</div>
 

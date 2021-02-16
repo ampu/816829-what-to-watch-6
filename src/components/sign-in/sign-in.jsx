@@ -9,13 +9,16 @@ const Field = {
 };
 
 
-const SignIn = ({error} = {}) => {
-
-  const getFieldClassName = (field) => error && error.field === field
+const getFieldClassName = (field, error) => {
+  return error && error.field === field
     ? `sign-in__field sign-in__field--error`
     : `sign-in__field`;
+};
 
-  const errorMessageElement = error && error.message &&
+
+const SignIn = ({error} = {}) => {
+
+  const errorMessage = error && error.message &&
     <div className="sign-in__message">
       <p>{error.message}</p>
     </div>;
@@ -30,13 +33,13 @@ const SignIn = ({error} = {}) => {
 
       <div className="sign-in user-page__content">
         <form action="#" className="sign-in__form">
-          {errorMessageElement}
+          {errorMessage}
           <div className="sign-in__fields">
-            <div className={getFieldClassName(Field.EMAIL)}>
+            <div className={getFieldClassName(Field.EMAIL, error)}>
               <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" autoComplete="username"/>
               <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
             </div>
-            <div className={getFieldClassName(Field.PASSWORD)}>
+            <div className={getFieldClassName(Field.PASSWORD, error)}>
               <input className="sign-in__input" type="password" placeholder="Password" name="user-password" id="user-password" autoComplete="current-password"/>
               <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
             </div>

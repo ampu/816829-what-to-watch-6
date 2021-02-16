@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {getMovieUrl} from '../../data/util/movie';
+import {getMovieUrl} from '../../utils/movie-util';
 
 
 const SmallMovieCard = ({movie = {}}) => {

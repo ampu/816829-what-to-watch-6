@@ -1,7 +1,7 @@
 import React from 'react';
 import {HashRouter, Switch, Route} from 'react-router-dom';
 
-import RoutePath from '../../data/route-path';
+import RoutePath from '../../constants/route-path';
 
 import Main from '../main/main';
 import NotFound from '../not-found/not-found';
@@ -23,16 +23,16 @@ const App = ({promoMovie = {}, movies = []}) => {
           <SignIn/>
         </Route>
         <Route exact path={RoutePath.MY_LIST}>
-          <MyList/>
+          <MyList movies={movies}/>
         </Route>
         <Route exact path={RoutePath.MOVIE}>
-          <MovieDetails/>
+          <MovieDetails movie={promoMovie}/>
         </Route>
         <Route exact path={RoutePath.ADD_REVIEW}>
           <AddReview/>
         </Route>
         <Route exact path={RoutePath.PLAYER}>
-          <Player/>
+          <Player movie={promoMovie}/>
         </Route>
         <Route>
           <NotFound/>
