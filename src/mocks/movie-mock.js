@@ -123,20 +123,8 @@ const generatePromoMovie = () => {
   };
 };
 
-const generateMoviePlaceholder = () => {
-  return {
-    id: nanoid(),
-    title: `…`,
-    poster: `https://www.fillmurray.com/281/175`,
-    background: `https://www.fillmurray.com/1300/552`,
-    genre: `-`,
-    year: `-`,
-  };
-};
-
 
 export {
   generateMovies,
   generatePromoMovie,
-  generateMoviePlaceholder,
 };

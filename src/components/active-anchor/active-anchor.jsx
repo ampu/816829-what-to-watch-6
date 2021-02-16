@@ -6,7 +6,7 @@ const ActiveAnchor = React.forwardRef(({href: _href, navigate: _navigate, ...pro
   return <a ref={ref} {...props}/>;
 });
 
-ActiveAnchor.displayName = `InactiveAnchor`;
+ActiveAnchor.displayName = `ActiveAnchor`;
 
 ActiveAnchor.propTypes = {
   href: PropTypes.any,
