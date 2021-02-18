@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import RoutePath from '../../constants/route-path';
 import {getClassName} from '../../utils/dom-util';
 
-import ActiveAnchor from '../active-anchor/active-anchor';
+import './logo.css';
 
 
 const Logo = ({isActive = false, isLight = false}) => {
@@ -16,13 +16,9 @@ const Logo = ({isActive = false, isLight = false}) => {
     [`logo__link--active`]: isActive,
   };
 
-  const componentProperty = isActive
-    ? {component: ActiveAnchor}
-    : {};
-
   return (
     <div className="logo">
-      <Link className={getClassName(classMap)} to={RoutePath.MAIN} {...componentProperty}>
+      <Link className={getClassName(classMap)} to={RoutePath.MAIN}>
         <span className="logo__letter logo__letter--1">W</span>
         <span className="logo__letter logo__letter--2">T</span>
         <span className="logo__letter logo__letter--3">W</span>

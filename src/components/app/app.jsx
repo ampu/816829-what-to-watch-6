@@ -29,7 +29,7 @@ const App = ({promoMovie = {}, movies = []}) => {
           <MovieDetails movie={promoMovie}/>
         </Route>
         <Route exact path={RoutePath.ADD_REVIEW}>
-          <AddReview/>
+          <AddReview movie={promoMovie}/>
         </Route>
         <Route exact path={RoutePath.PLAYER}>
           <Player movie={promoMovie}/>

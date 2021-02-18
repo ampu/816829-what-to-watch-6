@@ -1,10 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {generatePath, Link} from 'react-router-dom';
+
+import RoutePath from '../../constants/route-path';
 
 import Logo from '../logo/logo';
 import UserBlock from '../user-block/user-block';
 
 
-const AddReview = () => {
+const AddReview = ({movie} = {}) => {
   return (
     <section className="movie-card movie-card--full">
       <div className="movie-card__header">
@@ -20,7 +24,7 @@ const AddReview = () => {
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="movie-page.html" className="breadcrumbs__link">The Grand Budapest Hotel</a>
+                <Link className="breadcrumbs__link" to={generatePath(RoutePath.MOVIE, movie)}>The Grand Budapest Hotel</Link>
               </li>
               <li className="breadcrumbs__item">
                 <a className="breadcrumbs__link">Add review</a>
@@ -84,7 +88,11 @@ const AddReview = () => {
   );
 };
 
-AddReview.propTypes = {};
+AddReview.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }),
+};
 
 
 export default AddReview;
