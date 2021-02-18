@@ -1,4 +1,8 @@
 import {nanoid} from 'nanoid';
+import dayjs from 'dayjs';
+
+
+const MILLISECONDS_IN_SECOND = 1000;
 
 
 const generateMovies = () => {
@@ -111,10 +115,11 @@ const generatePromoMovie = () => {
   return {
     id: nanoid(),
     title: `The Grand Budapest Hotel`,
-    poster: `img/bg-the-grand-budapest-hotel.jpg`,
+    poster: `img/the-grand-budapest-hotel-poster.jpg`,
     background: `img/bg-the-grand-budapest-hotel.jpg`,
     genre: `Drama`,
     year: 2014,
+    duration: dayjs.duration(4677 * MILLISECONDS_IN_SECOND),
   };
 };
 
