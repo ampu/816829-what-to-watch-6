@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Genre from '../../constants/genre';
+
 import Logo from '../logo/logo';
 import MovieCard from '../movie-card/movie-card';
 import MoviesList from '../movies-list/movies-list';
@@ -14,7 +16,7 @@ const Main = ({promoMovie = {}, movies = []}) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <GenresList/>
+        <GenresList activeGenre={Genre.ALL}/>
 
         <MoviesList movies={movies}/>
 

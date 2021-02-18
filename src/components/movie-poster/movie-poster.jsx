@@ -1,19 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import PosterSize from '../../constants/poster-size';
+import {getClassName} from '../../utils/dom-util';
 
-const MoviePoster = ({movie = {}, isBig = false}) => {
+
+const MoviePoster = ({movie = {}, size = PosterSize.DEFAULT}) => {
   const {
     title = ``,
     poster = ``,
   } = movie;
 
-  const className = isBig
-    ? `movie-card__poster movie-card__poster--big`
-    : `movie-card__poster`;
+  const classMap = {
+    [`movie-card__poster`]: true,
+    [`movie-card__poster--small`]: size === PosterSize.SMALL,
+    [`movie-card__poster--big`]: size === PosterSize.BIG,
+  };
 
   return (
-    <div className={className}>
+    <div className={getClassName(classMap)}>
       <img src={poster} alt={`${title} poster`} width="218" height="327"/>
     </div>
   );
@@ -24,7 +29,7 @@ MoviePoster.propTypes = {
     title: PropTypes.string,
     poster: PropTypes.string,
   }),
-  isBig: PropTypes.bool,
+  size: PropTypes.oneOf(Object.values(PosterSize)),
 };
 
 

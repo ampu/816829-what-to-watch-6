@@ -6,17 +6,24 @@ import RoutePath from '../../constants/route-path';
 
 import Logo from '../logo/logo';
 import UserBlock from '../user-block/user-block';
+import MoviePoster from '../movie-poster/movie-poster';
+import PosterSize from '../../constants/poster-size';
 
 
 const AddReview = ({movie} = {}) => {
+  const {
+    title = ``,
+    background = ``,
+  } = movie;
+
   return (
     <section className="movie-card movie-card--full">
       <div className="movie-card__header">
         <div className="movie-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+          <img src={background} alt={title}/>
         </div>
 
-        <h1 className="visually-hidden">WTW</h1>
+        <h1 className="visually-hidden">{title}</h1>
 
         <header className="page-header">
           <Logo/>
@@ -24,7 +31,7 @@ const AddReview = ({movie} = {}) => {
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <Link className="breadcrumbs__link" to={generatePath(RoutePath.MOVIE, movie)}>The Grand Budapest Hotel</Link>
+                <Link className="breadcrumbs__link" to={generatePath(RoutePath.MOVIE, movie)}>{title}</Link>
               </li>
               <li className="breadcrumbs__item">
                 <a className="breadcrumbs__link">Add review</a>
@@ -35,9 +42,7 @@ const AddReview = ({movie} = {}) => {
           <UserBlock/>
         </header>
 
-        <div className="movie-card__poster movie-card__poster--small">
-          <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327"/>
-        </div>
+        <MoviePoster movie={movie} size={PosterSize.SMALL}/>
       </div>
 
       <div className="add-review">
@@ -91,7 +96,9 @@ const AddReview = ({movie} = {}) => {
 AddReview.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.string.isRequired,
-  }),
+    title: PropTypes.string,
+    background: PropTypes.string,
+  }).isRequired,
 };
 
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Link, generatePath} from 'react-router-dom';
 
 import RoutePath from '../../constants/route-path';
+import PosterSize from '../../constants/poster-size';
 
 import Logo from '../logo/logo';
 import MoviesList from '../movies-list/movies-list';
@@ -46,7 +47,7 @@ const MovieDetails = ({movie = {}, alikeMovies = []}) => {
       </div>
 
       <div className="movie-card__wrap movie-card__translate-top">
-        <MovieInfo movie={movie} isBigPoster={true}/>
+        <MovieInfo movie={movie} posterSize={PosterSize.BIG}/>
       </div>
     </section>
 
@@ -67,6 +68,8 @@ const MovieDetails = ({movie = {}, alikeMovies = []}) => {
 MovieDetails.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    background: PropTypes.string,
   }).isRequired,
   alikeMovies: MoviesList.propTypes.movies,
 };

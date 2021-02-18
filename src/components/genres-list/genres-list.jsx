@@ -1,41 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import Genre from '../../constants/genre';
+
+import GenresListItem from './genres-list-item';
 
 
-const GenresList = () => {
+const GenresList = ({activeGenre}) => {
   return (
     <ul className="catalog__genres-list">
-      <li className="catalog__genres-item catalog__genres-item--active">
-        <a href="#" className="catalog__genres-link">All genres</a>
-      </li>
-      <li className="catalog__genres-item">
-        <a href="#" className="catalog__genres-link">Comedies</a>
-      </li>
-      <li className="catalog__genres-item">
-        <a href="#" className="catalog__genres-link">Crime</a>
-      </li>
-      <li className="catalog__genres-item">
-        <a href="#" className="catalog__genres-link">Documentary</a>
-      </li>
-      <li className="catalog__genres-item">
-        <a href="#" className="catalog__genres-link">Dramas</a>
-      </li>
-      <li className="catalog__genres-item">
-        <a href="#" className="catalog__genres-link">Horror</a>
-      </li>
-      <li className="catalog__genres-item">
-        <a href="#" className="catalog__genres-link">Kids & Family</a>
-      </li>
-      <li className="catalog__genres-item">
-        <a href="#" className="catalog__genres-link">Romance</a>
-      </li>
-      <li className="catalog__genres-item">
-        <a href="#" className="catalog__genres-link">Sci-Fi</a>
-      </li>
-      <li className="catalog__genres-item">
-        <a href="#" className="catalog__genres-link">Thrillers</a>
-      </li>
+      {Object.values(Genre).map((genre) => <GenresListItem key={genre} title={genre} isActive={genre === activeGenre}/>)}
     </ul>
   );
+};
+
+GenresList.propTypes = {
+  activeGenre: PropTypes.oneOf(Object.values(Genre)),
 };
 
 

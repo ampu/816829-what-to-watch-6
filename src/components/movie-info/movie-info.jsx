@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link, generatePath} from 'react-router-dom';
+
+import RoutePath from '../../constants/route-path';
 
 import MoviePoster from '../movie-poster/movie-poster';
 
 
-const MovieInfo = ({movie = {}, isBigPoster}) => {
+const MovieInfo = ({movie = {}, posterSize}) => {
   const {
     descriptions = [],
     director = ``,
@@ -20,19 +23,19 @@ const MovieInfo = ({movie = {}, isBigPoster}) => {
 
   return (
     <div className="movie-card__info">
-      <MoviePoster movie={movie} isBig={isBigPoster}/>
+      <MoviePoster movie={movie} size={posterSize}/>
 
       <div className="movie-card__desc">
         <nav className="movie-nav movie-card__nav">
           <ul className="movie-nav__list">
             <li className="movie-nav__item movie-nav__item--active">
-              <a href="#" className="movie-nav__link">Overview</a>
+              <Link className="movie-nav__link" to={generatePath(RoutePath.MOVIE, movie)}>Overview</Link>
             </li>
             <li className="movie-nav__item">
-              <a href="#" className="movie-nav__link">Details</a>
+              <Link className="movie-nav__link" to={generatePath(RoutePath.MOVIE, movie)}>Details</Link>
             </li>
             <li className="movie-nav__item">
-              <a href="#" className="movie-nav__link">Reviews</a>
+              <Link className="movie-nav__link" to={generatePath(RoutePath.MOVIE, movie)}>Reviews</Link>
             </li>
           </ul>
         </nav>
@@ -68,7 +71,7 @@ MovieInfo.propTypes = {
       count: PropTypes.number,
     }),
   }),
-  isBigPoster: MoviePoster.propTypes.isBig,
+  posterSize: MoviePoster.propTypes.size,
 };
 
 
