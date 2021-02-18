@@ -22,7 +22,7 @@ const MovieCard = ({movie = {}}) => {
       <h1 className="visually-hidden">WTW</h1>
 
       <header className="page-header movie-card__head">
-        <Logo isActive={true}/>
+        <Logo/>
 
         <UserBlock/>
       </header>

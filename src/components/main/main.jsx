@@ -24,7 +24,7 @@ const Main = ({promoMovie = {}, movies = []}) => {
       </section>
 
       <footer className="page-footer">
-        <Logo isActive={true} isLight={true}/>
+        <Logo isLight={true}/>
 
         <div className="copyright">
           <p>© 2019 What to watch Ltd.</p>
