@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-const PauseButton = () => {
+const PauseButton = (props = {}) => {
   return (
-    <button type="button" className="player__play">
+    <button type="button" {...props}>
       <svg viewBox="0 0 14 21" width="14" height="21">
         <use xlinkHref="#pause"/>
       </svg>

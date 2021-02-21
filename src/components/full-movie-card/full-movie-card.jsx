@@ -2,20 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link, generatePath} from 'react-router-dom';
 
-import RoutePath from '../../constants/route-path';
+import {MainPath} from '../../constants/paths';
 import PosterSize from '../../constants/poster-size';
+import {getStyle} from '../../utils/movie-util';
 
 import Logo from '../logo/logo';
 import MoviesList from '../movies-list/movies-list';
 import UserBlock from '../user-block/user-block';
 import MovieDescription from '../movie-description/movie-description';
-import MovieInfo from '../movie-info/movie-info';
+import MovieBackground from '../movie-background/movie-background';
+import MovieInfo from './movie-info';
 
 
-const MovieDetails = ({movie = {}, alikeMovies = []}) => {
+const FullMovieCard = ({movie = {}, alikeMovies = []}) => {
+
   const {
-    title = ``,
-    background = ``,
+    backgroundColor,
   } = movie;
 
   const moreLikeThis = alikeMovies.length > 0 &&
@@ -25,11 +27,9 @@ const MovieDetails = ({movie = {}, alikeMovies = []}) => {
     </section>;
 
   return <>
-    <section className="movie-card movie-card--full">
+    <section className="movie-card movie-card--full" style={getStyle(`backgroundColor`, backgroundColor)}>
       <div className="movie-card__hero">
-        <div className="movie-card__bg">
-          <img src={background} alt={title}/>
-        </div>
+        <MovieBackground movie={movie}/>
 
         <h1 className="visually-hidden">WTW</h1>
 
@@ -41,7 +41,7 @@ const MovieDetails = ({movie = {}, alikeMovies = []}) => {
 
         <div className="movie-card__wrap">
           <MovieDescription movie={movie}>
-            <Link className="btn movie-card__button" to={generatePath(RoutePath.ADD_REVIEW, movie)}>Add review</Link>
+            <Link className="btn movie-card__button" to={generatePath(MainPath.ADD_REVIEW, movie)}>Add review</Link>
           </MovieDescription>
         </div>
       </div>
@@ -65,14 +65,13 @@ const MovieDetails = ({movie = {}, alikeMovies = []}) => {
   </>;
 };
 
-MovieDetails.propTypes = {
+FullMovieCard.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    title: PropTypes.string,
-    background: PropTypes.string,
+    backgroundColor: PropTypes.string,
   }).isRequired,
   alikeMovies: MoviesList.propTypes.movies,
 };
 
 
-export default MovieDetails;
+export default FullMovieCard;

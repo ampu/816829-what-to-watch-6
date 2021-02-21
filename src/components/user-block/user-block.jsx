@@ -2,20 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-import RoutePath from '../../constants/route-path';
+import {MainPath} from '../../constants/paths';
 
 
 const UserBlock = ({user}) => {
-  const signInElement = <Link to={RoutePath.SIGN_IN} className="user-block__link">Sign in</Link>;
 
-  const userElement = user &&
+  const userInfo = user &&
     <div className="user-block__avatar">
       <img src={user.avatar} alt="User avatar" width="63" height="63"/>
     </div>;
 
+  const signInLink = <Link to={MainPath.SIGN_IN} className="user-block__link">Sign in</Link>;
+
   return (
     <div className="user-block">
-      {userElement || signInElement}
+      {userInfo || signInLink}
     </div>
   );
 };

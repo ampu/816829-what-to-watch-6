@@ -1,13 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, generatePath} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Genre from '../../constants/genre';
-import RoutePath from '../../constants/route-path';
+import {GENRES} from '../../constants/genre';
+import {GENRE_PATH} from '../../constants/paths';
 import {getClassName} from '../../utils/dom-util';
 
 
-const GenresListItem = ({title = ``, path = RoutePath.MAIN, isActive = false}) => {
+const GenresListItem = ({genre = {}, isActive = false}) => {
 
   const classMap = {
     [`catalog__genres-item`]: true,
@@ -16,14 +16,13 @@ const GenresListItem = ({title = ``, path = RoutePath.MAIN, isActive = false}) =
 
   return (
     <li className={getClassName(classMap)}>
-      <Link to={path} className="catalog__genres-link">{title}</Link>
+      <Link to={generatePath(GENRE_PATH, {genre: genre.slug})} className="catalog__genres-link">{genre.category}</Link>
     </li>
   );
 };
 
 GenresListItem.propTypes = {
-  title: PropTypes.oneOf(Object.values(Genre)),
-  path: PropTypes.string,
+  genre: PropTypes.oneOf(GENRES),
   isActive: PropTypes.bool,
 };
 
