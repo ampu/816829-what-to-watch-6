@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {formatDuration} from '../../utils/dayjs-util';
+import {formatDuration} from '../../utils/date-util';
 
 import './movie-details.css';
 
@@ -27,7 +27,9 @@ const MovieDetails = ({movie = {}} = {}) => {
         {stars.length > 0 && (
           <p className="movie-card__details-item">
             <strong className="movie-card__details-name">Starring</strong>
-            <span className="movie-card__details-value movie-card__details-value--stars">{stars.join(`,\n`)}</span>
+            <span className="movie-card__details-value movie-card__details-value--stars">
+              {stars.join(`,\n`)}
+            </span>
           </p>
         )}
       </div>
@@ -36,7 +38,9 @@ const MovieDetails = ({movie = {}} = {}) => {
         {durationSeconds && (
           <p className="movie-card__details-item">
             <strong className="movie-card__details-name">Run Time</strong>
-            <span className="movie-card__details-value">{formatDuration(durationSeconds, `H[h] m[m]`)}</span>
+            <span className="movie-card__details-value">
+              {formatDuration(durationSeconds, `H[h] m[m]`)}
+            </span>
           </p>
         )}
         {genre && (

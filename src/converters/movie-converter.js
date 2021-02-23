@@ -1,5 +1,4 @@
-import {SECONDS_IN_MINUTE} from '../utils/dayjs-util';
-
+import {SECONDS_IN_MINUTE} from '../utils/date-util';
 
 const ApiMovieField = {
   POSTER_IMAGE: `poster_image`,
@@ -13,7 +12,6 @@ const ApiMovieField = {
   VIDEO_LINK: `video_link`,
   PREVIEW_VIDEO_LINK: `preview_video_link`,
 };
-
 
 const importApiMovie = ({
   id = ``,
@@ -54,7 +52,6 @@ const importApiMovie = ({
     videoPreview,
   };
 };
-
 
 export {
   importApiMovie,

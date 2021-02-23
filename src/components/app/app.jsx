@@ -12,7 +12,6 @@ import FullMovieCard from '../full-movie-card/full-movie-card';
 import AddReviewPage from '../add-review-page/add-review-page';
 import Player from '../player/player';
 
-
 const App = ({promoMovie = {}, movies = []}) => {
   return (
     <HashRouter>
@@ -44,6 +43,5 @@ const App = ({promoMovie = {}, movies = []}) => {
 };
 
 App.propTypes = Main.propTypes;
-
 
 export default App;

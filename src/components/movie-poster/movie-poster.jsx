@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import PosterSize from '../../constants/poster-size';
 import {getClassName} from '../../utils/dom-util';
 
-
 const MoviePoster = ({movie = {}, size = PosterSize.DEFAULT}) => {
   const {
     title = ``,
@@ -31,6 +30,5 @@ MoviePoster.propTypes = {
   }),
   size: PropTypes.oneOf(Object.values(PosterSize)),
 };
-
 
 export default MoviePoster;

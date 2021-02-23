@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {formatRating, getStyle} from '../../utils/movie-util';
-import {formatDate} from '../../utils/dayjs-util';
+import {formatDate} from '../../utils/date-util';
 
 
 const MovieReview = ({movie = {}, review = {}}) => {
@@ -24,7 +24,11 @@ const MovieReview = ({movie = {}, review = {}}) => {
 
         <footer className="review__details">
           {userName && <cite className="review__author">{userName}</cite>}
-          {date && <time className="review__date" dateTime={formatDate(date, `YYYY-MM-DD`)}>{formatDate(date, `MMMM DD, YYYY`)}</time>}
+          {date && (
+            <time className="review__date" dateTime={formatDate(date, `YYYY-MM-DD`)}>
+              {formatDate(date, `MMMM DD, YYYY`)}
+            </time>
+          )}
         </footer>
       </blockquote>
 

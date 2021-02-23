@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const PlayButton = (props = {}) => {
   return (
     <button type="button" {...props}>
@@ -11,6 +10,5 @@ const PlayButton = (props = {}) => {
     </button>
   );
 };
-
 
 export default PlayButton;

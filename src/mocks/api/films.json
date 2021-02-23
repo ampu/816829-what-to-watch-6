@@ -20,7 +20,7 @@
     "id": 1,
     "is_favorite": false,
     "video_link": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
-    "preview_video_link": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    "preview_video_link": "video-preview/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
   },
   {
     "name": "Gangs of new york",
@@ -43,7 +43,7 @@
     "id": 2,
     "is_favorite": false,
     "video_link": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
-    "preview_video_link": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    "preview_video_link": "video-preview/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
   },
   {
     "name": "What We Do in the Shadows",
@@ -66,7 +66,7 @@
     "id": 3,
     "is_favorite": false,
     "video_link": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
-    "preview_video_link": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    "preview_video_link": "video-preview/sintel_trailer-480p.mp4"
   },
   {
     "name": "Dardjeeling Limited",
@@ -89,7 +89,7 @@
     "id": 4,
     "is_favorite": false,
     "video_link": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
-    "preview_video_link": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    "preview_video_link": "video-preview/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
   },
   {
     "name": "Bronson",
@@ -112,7 +112,7 @@
     "id": 5,
     "is_favorite": false,
     "video_link": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
-    "preview_video_link": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    "preview_video_link": "video-preview/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
   },
   {
     "name": "Bohemian Rhapsody",
@@ -135,7 +135,7 @@
     "id": 6,
     "is_favorite": false,
     "video_link": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
-    "preview_video_link": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    "preview_video_link": "video-preview/sintel_trailer-480p.mp4"
   },
   {
     "name": "Midnight Special",
@@ -158,7 +158,7 @@
     "id": 7,
     "is_favorite": false,
     "video_link": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
-    "preview_video_link": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    "preview_video_link": "video-preview/sintel_trailer-480p.mp4"
   },
   {
     "name": "We need to talk about Kevin",
@@ -181,7 +181,7 @@
     "id": 8,
     "is_favorite": false,
     "video_link": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
-    "preview_video_link": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    "preview_video_link": "video-preview/sintel_trailer-480p.mp4"
   },
   {
     "name": "Once Upon a Time in America",
@@ -204,7 +204,7 @@
     "id": 9,
     "is_favorite": false,
     "video_link": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
-    "preview_video_link": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    "preview_video_link": "video-preview/sintel_trailer-480p.mp4"
   },
   {
     "name": "A Star Is Born",
@@ -227,7 +227,7 @@
     "id": 10,
     "is_favorite": false,
     "video_link": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
-    "preview_video_link": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    "preview_video_link": "video-preview/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
   },
   {
     "name": "Pulp Fiction",
@@ -250,7 +250,7 @@
     "id": 11,
     "is_favorite": false,
     "video_link": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
-    "preview_video_link": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    "preview_video_link": "video-preview/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
   },
   {
     "name": "Matrix",
@@ -273,7 +273,7 @@
     "id": 12,
     "is_favorite": false,
     "video_link": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
-    "preview_video_link": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    "preview_video_link": "video-preview/sintel_trailer-480p.mp4"
   },
   {
     "name": "Johnny English",
@@ -296,7 +296,7 @@
     "id": 13,
     "is_favorite": false,
     "video_link": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
-    "preview_video_link": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    "preview_video_link": "video-preview/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
   },
   {
     "name": "Moonrise Kingdom",
@@ -319,7 +319,7 @@
     "id": 14,
     "is_favorite": false,
     "video_link": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
-    "preview_video_link": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    "preview_video_link": "video-preview/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
   },
   {
     "name": "No Country for Old Men",
@@ -342,7 +342,7 @@
     "id": 15,
     "is_favorite": false,
     "video_link": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
-    "preview_video_link": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    "preview_video_link": "video-preview/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
   },
   {
     "name": "Beach",
@@ -365,7 +365,7 @@
     "id": 16,
     "is_favorite": false,
     "video_link": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
-    "preview_video_link": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    "preview_video_link": "video-preview/sintel_trailer-480p.mp4"
   },
   {
     "name": "Legend",
@@ -388,7 +388,7 @@
     "id": 17,
     "is_favorite": false,
     "video_link": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
-    "preview_video_link": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    "preview_video_link": "video-preview/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
   },
   {
     "name": "Fantastic Beasts: The Crimes of Grindelwald",
@@ -411,7 +411,7 @@
     "id": 18,
     "is_favorite": false,
     "video_link": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
-    "preview_video_link": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    "preview_video_link": "video-preview/sintel_trailer-480p.mp4"
   },
   {
     "name": "Macbeth",
@@ -434,7 +434,7 @@
     "id": 19,
     "is_favorite": false,
     "video_link": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
-    "preview_video_link": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    "preview_video_link": "video-preview/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
   },
   {
     "name": "Shutter Island",
@@ -457,7 +457,7 @@
     "id": 20,
     "is_favorite": false,
     "video_link": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
-    "preview_video_link": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    "preview_video_link": "video-preview/sintel_trailer-480p.mp4"
   },
   {
     "name": "The Revenant",
@@ -480,7 +480,7 @@
     "id": 21,
     "is_favorite": false,
     "video_link": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
-    "preview_video_link": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    "preview_video_link": "video-preview/sintel_trailer-480p.mp4"
   },
   {
     "name": "Seven Years in Tibet",
@@ -503,7 +503,7 @@
     "id": 22,
     "is_favorite": false,
     "video_link": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
-    "preview_video_link": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    "preview_video_link": "video-preview/sintel_trailer-480p.mp4"
   },
   {
     "name": "Aviator",
@@ -526,7 +526,7 @@
     "id": 23,
     "is_favorite": false,
     "video_link": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
-    "preview_video_link": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    "preview_video_link": "video-preview/sintel_trailer-480p.mp4"
   },
   {
     "name": "Snatch",
@@ -549,7 +549,7 @@
     "id": 24,
     "is_favorite": false,
     "video_link": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
-    "preview_video_link": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    "preview_video_link": "video-preview/sintel_trailer-480p.mp4"
   },
   {
     "name": "Orlando",
@@ -572,6 +572,6 @@
     "id": 25,
     "is_favorite": false,
     "video_link": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
-    "preview_video_link": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    "preview_video_link": "video-preview/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
   }
 ]

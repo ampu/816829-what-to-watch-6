@@ -5,7 +5,6 @@ import MovieCard from '../movie-card/movie-card';
 import MoviesList from '../movies-list/movies-list';
 import GenresList from '../genres-list/genres-list';
 
-
 const Main = ({promoMovie = {}, movies = []}) => {
   return <>
     <MovieCard movie={promoMovie}/>
@@ -38,6 +37,5 @@ Main.propTypes = {
   promoMovie: MovieCard.propTypes.movie,
   movies: MoviesList.propTypes.movies,
 };
-
 
 export default Main;

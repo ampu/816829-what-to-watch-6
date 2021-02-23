@@ -1,39 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import {getReviewKey} from '../../utils/review-util';
+import MovieReviewsColumn from './movie-reviews-column';
 
-import MovieReview from './movie-review';
+const COLUMN_CAPACITY = 3;
 
-
-const ColumnSlice = {
-  FIRST: [0, 3],
-  SECOND: [3, 6],
+const ColumnOffset = {
+  FIRST: 0,
+  SECOND: COLUMN_CAPACITY,
 };
-
 
 const MovieReviews = ({movie = {}} = {}) => {
   return (
     <div className="movie-card__reviews movie-card__row">
-      <div className="movie-card__reviews-col">
-        {movie.reviews.slice(...ColumnSlice.FIRST).map((review) => <MovieReview key={getReviewKey(movie, review)} movie={movie} review={review}/>)}
-      </div>
-
-      <div className="movie-card__reviews-col">
-        {movie.reviews.slice(...ColumnSlice.SECOND).map((review) => <MovieReview key={getReviewKey(movie, review)} movie={movie} review={review}/>)}
-      </div>
+      <MovieReviewsColumn movie={movie} offset={ColumnOffset.FIRST} limit={COLUMN_CAPACITY}/>
+      <MovieReviewsColumn movie={movie} offset={ColumnOffset.SECOND} limit={COLUMN_CAPACITY}/>
     </div>
   );
 };
 
 MovieReviews.propTypes = {
-  movie: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    reviews: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }).isRequired),
-  }),
+  movie: MovieReviewsColumn.propTypes.movie,
 };
-
 
 export default MovieReviews;

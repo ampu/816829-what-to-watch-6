@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 
 import {MainPath} from '../../constants/paths';
 
+import PreviewPlayer from '../preview-player/preview-player';
 
-const SmallMovieCard = ({movie = {}, ...props}) => {
-  const {title = ``, preview = ``} = movie;
+const SmallMovieCard = ({movie = {}, isActive = false, ...props}) => {
+  const {title = ``} = movie;
 
   return (
     <article className="small-movie-card catalog__movies-card" {...props}>
       <div className="small-movie-card__image">
-        <img src={preview} alt={title} width="280" height="175"/>
+        <PreviewPlayer movie={movie} isActive={isActive}/>
       </div>
       <h3 className="small-movie-card__title">
         <Link className="small-movie-card__link" to={generatePath(MainPath.MOVIE, movie)}>{title}</Link>
@@ -24,9 +25,8 @@ SmallMovieCard.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string,
-    preview: PropTypes.string,
   }),
+  isActive: PropTypes.bool,
 };
-
 
 export default SmallMovieCard;
