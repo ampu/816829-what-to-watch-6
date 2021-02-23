@@ -1,12 +1,10 @@
 import dayjs from 'dayjs';
 import durationPlugin from 'dayjs/plugin/duration';
 
-
 const SECONDS_IN_MINUTE = 60;
 const MILLISECONDS_IN_SECOND = 1000;
 
 const PROGRESS_CONSTRAINT = {min: 0, max: 100};
-
 
 /**
  * @param {any} date
@@ -54,9 +52,7 @@ const clamp = (value, {min, max} = {}) => {
   return value;
 };
 
-
 dayjs.extend(durationPlugin);
-
 
 export {
   SECONDS_IN_MINUTE,

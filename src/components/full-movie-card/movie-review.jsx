@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import {formatRating, getStyle} from '../../utils/movie-util';
 import {formatDate} from '../../utils/date-util';
 
-
 const MovieReview = ({movie = {}, review = {}}) => {
   const {
     backgroundColor,
@@ -48,6 +47,5 @@ MovieReview.propTypes = {
     rating: PropTypes.number,
   }),
 };
-
 
 export default MovieReview;

@@ -8,7 +8,6 @@ const SCORES_COUNT_FORMAT = {
   options: {maximumFractionDigits: 0},
 };
 
-
 /**
  * @param {Number} rating
  * @return {String}
@@ -62,7 +61,6 @@ const formatScoresCount = (scoresCount) => {
 const getAlikeMovies = (movies, {id, genre}) => {
   return movies.filter((movie) => movie.id !== id && movie.genre === genre);
 };
-
 
 export {
   formatRating,
