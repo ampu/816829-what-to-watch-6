@@ -1,25 +1,37 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
 
 import {getClassName} from '../../utils/dom-util';
 
 import Logo from '../logo/logo';
 
-
 const Field = {
   EMAIL: `email`,
   PASSWORD: `password`,
 };
 
+const getFieldClassName = (field, error) => {
+  return getClassName({
+    [`sign-in__field`]: true,
+    [`sign-in__field--error`]: error && error.field === field,
+  });
+};
 
 const SignIn = ({error} = {}) => {
 
-  const [login, setLogin] = React.useState(``);
-  const [password, setPassword] = React.useState(``);
+  const [login, setLogin] = useState(``);
+  const handleLoginChange = useCallback((evt) => {
+    setLogin(evt.target.value);
+  }, [setLogin]);
 
-  const handleFormSubmit = (evt) => {
+  const [password, setPassword] = useState(``);
+  const handlePasswordChange = useCallback((evt) => {
+    setPassword(evt.target.value);
+  }, [setPassword]);
+
+  const handleFormSubmit = useCallback((evt) => {
     evt.preventDefault();
-  };
+  }, []);
 
   return (
     <div className="user-page">
@@ -37,12 +49,18 @@ const SignIn = ({error} = {}) => {
             </div>
           )}
           <div className="sign-in__fields">
-            <div className={getClassName({[`sign-in__field`]: true, [`sign-in__field--error`]: error && error.field === Field.EMAIL})}>
-              <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" autoComplete="username" required value={login} onChange={(evt) => setLogin(evt.target.value)}/>
+            <div className={getFieldClassName(Field.EMAIL, error)}>
+              <input className="sign-in__input" id="user-email"
+                type="email" placeholder="Email address" name="user-email" autoComplete="username" required
+                value={login} onChange={handleLoginChange}/>
+
               <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
             </div>
-            <div className={getClassName({[`sign-in__field`]: true, [`sign-in__field--error`]: error && error.field === Field.PASSWORD})}>
-              <input className="sign-in__input" type="password" placeholder="Password" name="user-password" id="user-password" autoComplete="current-password" required value={password} onChange={(evt) => setPassword(evt.target.value)}/>
+            <div className={getFieldClassName(Field.PASSWORD, error)}>
+              <input className="sign-in__input" id="user-password"
+                type="password" placeholder="Password" name="user-password" autoComplete="current-password" required
+                value={password} onChange={handlePasswordChange}/>
+
               <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
             </div>
           </div>
@@ -69,6 +87,5 @@ SignIn.propTypes = {
     field: PropTypes.oneOf(Object.values(Field)),
   }),
 };
-
 
 export default SignIn;

@@ -12,7 +12,6 @@ import MoviePoster from '../movie-poster/movie-poster';
 import MovieBackground from '../movie-background/movie-background';
 import AddReviewForm from './add-review-form';
 
-
 const AddReviewPage = ({movie} = {}) => {
   const {
     title = ``,
@@ -60,6 +59,5 @@ AddReviewPage.propTypes = {
     backgroundColor: PropTypes.string,
   }).isRequired,
 };
-
 
 export default AddReviewPage;

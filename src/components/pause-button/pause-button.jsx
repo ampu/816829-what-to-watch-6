@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const PauseButton = (props = {}) => {
   return (
     <button type="button" {...props}>
@@ -11,6 +10,5 @@ const PauseButton = (props = {}) => {
     </button>
   );
 };
-
 
 export default PauseButton;

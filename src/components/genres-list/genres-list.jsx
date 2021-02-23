@@ -6,7 +6,6 @@ import {getGenreBySlug} from '../../utils/genre-util';
 
 import GenresListItem from './genres-list-item';
 
-
 const GenresList = () => {
   const activeGenre = getGenreBySlug(useParams().genre);
 
@@ -16,8 +15,5 @@ const GenresList = () => {
     </ul>
   );
 };
-
-GenresList.propTypes = {};
-
 
 export default GenresList;

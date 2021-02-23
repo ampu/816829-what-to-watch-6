@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 const MyListButton = ({isActive, ...props} = {}) => {
   return (
     <button type="button" {...props}>
@@ -25,6 +24,5 @@ const MyListButton = ({isActive, ...props} = {}) => {
 MyListButton.propTypes = {
   isActive: PropTypes.bool,
 };
-
 
 export default MyListButton;

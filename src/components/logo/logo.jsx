@@ -7,7 +7,6 @@ import {getClassName} from '../../utils/dom-util';
 
 import './logo.css';
 
-
 const Logo = ({isLight = false}) => {
 
   const classMap = {
@@ -29,6 +28,5 @@ const Logo = ({isLight = false}) => {
 Logo.propTypes = {
   isLight: PropTypes.bool,
 };
-
 
 export default Logo;
