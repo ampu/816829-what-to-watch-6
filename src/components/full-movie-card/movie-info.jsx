@@ -11,7 +11,6 @@ import MovieDetails from './movie-details';
 import {useMatchPath} from '../../hooks/use-match-path';
 import MovieReviews from './movie-reviews';
 
-
 const MovieInfo = ({movie = {}, posterSize} = {}) => {
   return (
     <div className="movie-card__info">
@@ -32,6 +31,5 @@ MovieInfo.propTypes = {
   movie: PropTypes.object,
   posterSize: MoviePoster.propTypes.size,
 };
-
 
 export default MovieInfo;

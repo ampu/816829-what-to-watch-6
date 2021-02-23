@@ -8,7 +8,6 @@ const getClassName = (classMap) => {
     .join(` `);
 };
 
-
 export {
   getClassName,
 };

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import {getRatingLevel, formatScoresCount, formatRating} from '../../utils/movie-util';
 
-
 const MovieOverview = ({movie = {}} = {}) => {
   const {
     description = ``,
@@ -43,6 +42,5 @@ MovieOverview.propTypes = {
     scoresCount: PropTypes.number,
   }),
 };
-
 
 export default MovieOverview;

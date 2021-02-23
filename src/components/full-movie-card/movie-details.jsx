@@ -5,7 +5,6 @@ import {formatDuration} from '../../utils/date-util';
 
 import './movie-details.css';
 
-
 const MovieDetails = ({movie = {}} = {}) => {
   const {
     director = ``,
@@ -69,6 +68,5 @@ MovieDetails.propTypes = {
     year: PropTypes.number,
   }),
 };
-
 
 export default MovieDetails;
