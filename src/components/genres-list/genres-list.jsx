@@ -1,22 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {useParams} from 'react-router-dom';
 
-import Genre from '../../constants/genre';
+import {GENRES} from '../../constants/genre';
+import {getGenreBySlug} from '../../utils/genre-util';
 
 import GenresListItem from './genres-list-item';
 
 
-const GenresList = ({activeGenre}) => {
+const GenresList = () => {
+  const activeGenre = getGenreBySlug(useParams().genre);
+
   return (
     <ul className="catalog__genres-list">
-      {Object.values(Genre).map((genre) => <GenresListItem key={genre} title={genre} isActive={genre === activeGenre}/>)}
+      {GENRES.map((genre) => <GenresListItem key={genre.slug} genre={genre} isActive={genre === activeGenre}/>)}
     </ul>
   );
 };
 
-GenresList.propTypes = {
-  activeGenre: PropTypes.oneOf(Object.values(Genre)),
-};
+GenresList.propTypes = {};
 
 
 export default GenresList;

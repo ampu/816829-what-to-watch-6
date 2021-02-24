@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {NavLink} from 'react-router-dom';
 
-import RoutePath from '../../constants/route-path';
+import {MainPath} from '../../constants/paths';
 import {getClassName} from '../../utils/dom-util';
 
 import './logo.css';
@@ -17,7 +17,7 @@ const Logo = ({isLight = false}) => {
 
   return (
     <div className="logo">
-      <NavLink className={getClassName(classMap)} activeClassName="logo__link--active" exact to={RoutePath.MAIN}>
+      <NavLink className={getClassName(classMap)} activeClassName="logo__link--active" exact to={MainPath.INDEX}>
         <span className="logo__letter logo__letter--1">W</span>
         <span className="logo__letter logo__letter--2">T</span>
         <span className="logo__letter logo__letter--3">W</span>

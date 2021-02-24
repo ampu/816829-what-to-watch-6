@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {generatePath, useHistory} from 'react-router-dom';
+
+import {MainPath} from '../../constants/paths';
 
 import PlayButton from '../play-button/play-button';
 import MyListButton from '../my-list-button/my-list-button';
@@ -12,6 +15,21 @@ const MovieDescription = ({movie = {}, children}) => {
     year = ``,
   } = movie;
 
+  const history = useHistory();
+
+  const [isInMyList, setInMyList] = React.useState(false);
+
+  const handlePlayClick = (evt) => {
+    evt.preventDefault();
+    history.push(generatePath(MainPath.PLAYER, movie));
+  };
+
+  const handleMyListClick = (evt) => {
+    evt.preventDefault();
+    // todo: implement this appropriately
+    setInMyList(!isInMyList);
+  };
+
   return (
     <div className="movie-card__desc">
       <h2 className="movie-card__title">{title}</h2>
@@ -21,8 +39,8 @@ const MovieDescription = ({movie = {}, children}) => {
       </p>
 
       <div className="movie-card__buttons">
-        <PlayButton className="btn btn--play movie-card__button"/>
-        <MyListButton/>
+        <PlayButton className="btn btn--play movie-card__button" onClick={handlePlayClick}/>
+        <MyListButton className="btn btn--list movie-card__button" isActive={isInMyList} onClick={handleMyListClick}/>
         {children}
       </div>
     </div>
