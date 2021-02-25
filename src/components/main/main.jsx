@@ -2,10 +2,10 @@ import React from 'react';
 
 import Logo from '../logo/logo';
 import MovieCard from '../movie-card/movie-card';
-import MoviesList from '../movies-list/movies-list';
+import GenreMoviesList from '../movies-list/genre-movies-list';
 import GenresList from '../genres-list/genres-list';
 
-const Main = ({promoMovie = {}, movies = []}) => {
+const Main = ({promoMovie = {}}) => {
   return <>
     <MovieCard movie={promoMovie}/>
 
@@ -15,7 +15,7 @@ const Main = ({promoMovie = {}, movies = []}) => {
 
         <GenresList/>
 
-        <MoviesList movies={movies}/>
+        <GenreMoviesList/>
 
         <div className="catalog__more">
           <button className="catalog__button" type="button">Show more</button>
@@ -35,7 +35,6 @@ const Main = ({promoMovie = {}, movies = []}) => {
 
 Main.propTypes = {
   promoMovie: MovieCard.propTypes.movie,
-  movies: MoviesList.propTypes.movies,
 };
 
 export default Main;

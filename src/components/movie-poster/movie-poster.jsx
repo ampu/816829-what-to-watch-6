@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getClassName from 'classnames';
 
 import PosterSize from '../../constants/poster-size';
-import {getClassName} from '../../utils/dom-util';
 
 const MoviePoster = ({movie = {}, size = PosterSize.DEFAULT}) => {
   const {

@@ -19,4 +19,6 @@ AddReviewStarList.propTypes = {
   maxRating: PropTypes.number.isRequired,
 };
 
-export default AddReviewStarList;
+export {AddReviewStarList};
+
+export default React.memo(AddReviewStarList);

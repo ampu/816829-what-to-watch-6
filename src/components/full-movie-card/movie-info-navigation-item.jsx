@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import getClassName from 'classnames';
 
-import {getClassName} from '../../utils/dom-util';
 import {useMatchPath} from '../../hooks/use-match-path';
 
 const MovieInfoNavigationItem = ({title = ``, path = ``}) => {

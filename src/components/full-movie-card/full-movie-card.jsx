@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {Link, generatePath} from 'react-router-dom';
 
 import {MainPath} from '../../constants/paths';
 import PosterSize from '../../constants/poster-size';
-import {getStyle} from '../../utils/movie-util';
+import {getAlikeMovies} from '../../utils/movie-util';
 
 import Logo from '../logo/logo';
 import MoviesList from '../movies-list/movies-list';
@@ -13,11 +13,13 @@ import MovieDescription from '../movie-description/movie-description';
 import MovieBackground from '../movie-background/movie-background';
 import MovieInfo from './movie-info';
 
-const FullMovieCard = ({movie = {}, alikeMovies = []}) => {
+const FullMovieCard = ({movies = [], movie = {}}) => {
 
   const {
-    backgroundColor,
+    primaryBackgroundStyle,
   } = movie;
+
+  const alikeMovies = useMemo(() => getAlikeMovies(movies, movie), [movies, movie]);
 
   const moreLikeThis = alikeMovies.length > 0 &&
     <section className="catalog catalog--like-this">
@@ -26,8 +28,7 @@ const FullMovieCard = ({movie = {}, alikeMovies = []}) => {
     </section>;
 
   return <>
-    <section className="movie-card movie-card--full"
-      style={getStyle(`backgroundColor`, backgroundColor)}>
+    <section className="movie-card movie-card--full" style={primaryBackgroundStyle}>
 
       <div className="movie-card__hero">
         <MovieBackground movie={movie}/>
@@ -69,11 +70,11 @@ const FullMovieCard = ({movie = {}, alikeMovies = []}) => {
 };
 
 FullMovieCard.propTypes = {
+  movies: MoviesList.propTypes.movies,
   movie: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string,
+    primaryBackgroundStyle: PropTypes.object,
   }).isRequired,
-  alikeMovies: MoviesList.propTypes.movies,
 };
 
 export default FullMovieCard;

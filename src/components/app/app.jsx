@@ -1,8 +1,7 @@
 import React from 'react';
 import {HashRouter, Switch, Route} from 'react-router-dom';
 
-import {MainPath, MoviePath, GENRE_PATH} from '../../constants/paths';
-import {getAlikeMovies} from '../../utils/movie-util';
+import {MainPath, MOVIE_PATHS} from '../../constants/paths';
 
 import Main from '../main/main';
 import NotFound from '../not-found/not-found';
@@ -16,7 +15,7 @@ const App = ({promoMovie = {}, movies = []}) => {
   return (
     <HashRouter>
       <Switch>
-        <Route exact path={[MainPath.INDEX, GENRE_PATH]}>
+        <Route exact path={MainPath.INDEX}>
           <Main promoMovie={promoMovie} movies={movies}/>
         </Route>
         <Route exact path={MainPath.SIGN_IN}>
@@ -25,8 +24,8 @@ const App = ({promoMovie = {}, movies = []}) => {
         <Route exact path={MainPath.MY_LIST}>
           <MyList movies={movies}/>
         </Route>
-        <Route exact path={[MainPath.MOVIE, ...Object.values(MoviePath)]}>
-          <FullMovieCard movie={promoMovie} alikeMovies={getAlikeMovies(movies, promoMovie)}/>
+        <Route exact path={MOVIE_PATHS}>
+          <FullMovieCard movies={movies} movie={promoMovie}/>
         </Route>
         <Route exact path={MainPath.ADD_REVIEW}>
           <AddReviewPage movie={promoMovie}/>
@@ -42,6 +41,9 @@ const App = ({promoMovie = {}, movies = []}) => {
   );
 };
 
-App.propTypes = Main.propTypes;
+App.propTypes = {
+  promoMovie: FullMovieCard.propTypes.movie,
+  movies: MyList.propTypes.movies,
+};
 
 export default App;
