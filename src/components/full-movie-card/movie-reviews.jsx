@@ -1,25 +1,22 @@
-import React from 'react';
+import React, {memo} from 'react';
 
-import MovieReviewsColumn, {MovieReviewsColumn as ControlledMovieReviewsColumn} from './movie-reviews-column';
-
-const COLUMN_CAPACITY = 3;
-
-const ColumnOffset = {
-  FIRST: 0,
-  SECOND: COLUMN_CAPACITY,
-};
+import MovieReviewsColumn from './movie-reviews-column';
 
 const MovieReviews = ({reviews = []} = {}) => {
+
+  const columnCapacity = Math.ceil(reviews.length / 2);
+
   return (
     <div className="movie-card__reviews movie-card__row">
-      <MovieReviewsColumn reviews={reviews} offset={ColumnOffset.FIRST} limit={COLUMN_CAPACITY}/>
-      <MovieReviewsColumn reviews={reviews} offset={ColumnOffset.SECOND} limit={COLUMN_CAPACITY}/>
+      <MovieReviewsColumn reviews={reviews.slice(0, columnCapacity)}/>
+      <MovieReviewsColumn reviews={reviews.slice(columnCapacity, columnCapacity)}/>
     </div>
   );
 };
 
 MovieReviews.propTypes = {
-  reviews: ControlledMovieReviewsColumn.propTypes.reviews,
+  reviews: MovieReviewsColumn.propTypes.reviews,
 };
 
-export default MovieReviews;
+export {MovieReviews};
+export default memo(MovieReviews);

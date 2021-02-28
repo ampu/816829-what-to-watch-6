@@ -17,13 +17,14 @@ const MoviesList = ({movies}) => {
     setLimit((currentLimit) => currentLimit + PAGE_LIMIT);
   }, [setLimit]);
 
-  const renderedMovies = useMemo(() => {
-    return movies.slice(0, limit).map((movie) => <SmallMovieCard key={movie.id} movie={movie}/>);
+  const movieCards = useMemo(() => {
+    return movies.slice(0, limit)
+      .map((movie) => <SmallMovieCard key={movie.id} movie={movie}/>);
   }, [movies, limit]);
 
   return <>
     <div className="catalog__movies-list">
-      {renderedMovies}
+      {movieCards}
     </div>
     {limit < movies.length && <ShowMoreButton onClick={handleShowMoreButtonClick}/>}
   </>;

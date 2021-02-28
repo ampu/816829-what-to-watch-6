@@ -8,11 +8,11 @@ const useTimeoutActivator = (time) => {
   const timeout = useRef();
 
   const activateAfterTimeout = useCallback(() => {
-    timeout.current = window.setTimeout(activate, time);
+    timeout.current = setTimeout(activate, time);
   }, [time, activate, timeout]);
 
   const deactivateWithTimeout = useCallback(() => {
-    window.clearTimeout(timeout.current);
+    clearTimeout(timeout.current);
     deactivate();
   }, [deactivate, timeout]);
 

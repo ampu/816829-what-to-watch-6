@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
 import store from './store/store';
-import {preload} from './store/operations';
+import {preload} from './store/operations/preload';
 
 import App from './components/app/app';
 
