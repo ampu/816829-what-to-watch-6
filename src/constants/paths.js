@@ -5,6 +5,7 @@ const MainPath = {
   MOVIE: `/films/:id`,
   ADD_REVIEW: `/films/:id/review`,
   PLAYER: `/player/:id`,
+  NOT_FOUND: `/not-found`,
 };
 
 const MoviePath = {

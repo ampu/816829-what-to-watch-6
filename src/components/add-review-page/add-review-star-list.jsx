@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import PropTypes from 'prop-types';
 
 const AddReviewStarList = ({maxRating}) => {
@@ -21,4 +21,4 @@ AddReviewStarList.propTypes = {
 
 export {AddReviewStarList};
 
-export default React.memo(AddReviewStarList);
+export default memo(AddReviewStarList);

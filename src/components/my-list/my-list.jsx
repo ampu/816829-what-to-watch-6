@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import Logo from '../logo/logo';
 import MoviesList from '../movies-list/movies-list';
@@ -22,7 +23,7 @@ const MyList = ({movies = []}) => {
       </section>
 
       <footer className="page-footer">
-        <Logo isLight={true}/>
+        <Logo isLight/>
 
         <div className="copyright">
           <p>© 2019 What to watch Ltd.</p>
@@ -36,4 +37,9 @@ MyList.propTypes = {
   movies: MoviesList.propTypes.movies,
 };
 
-export default MyList;
+const mapStateToProps = (state) => ({
+  movies: state.myMovies,
+});
+
+export {MyList};
+export default connect(mapStateToProps)(MyList);

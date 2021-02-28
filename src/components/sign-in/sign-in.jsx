@@ -70,7 +70,7 @@ const SignIn = ({error} = {}) => {
       </div>
 
       <footer className="page-footer">
-        <Logo isLight={true}/>
+        <Logo isLight/>
 
         <div className="copyright">
           <p>© 2019 What to watch Ltd.</p>

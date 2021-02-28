@@ -18,6 +18,20 @@ const importApiReview = ({
   };
 };
 
+const importApiReviews = (apiReviews) => apiReviews.map(importApiReview);
+
+const exportApiReview = ({
+  rating = 0,
+  text: comment = ``,
+}) => {
+  return {
+    rating,
+    comment,
+  };
+};
+
 export {
   importApiReview,
+  importApiReviews,
+  exportApiReview,
 };

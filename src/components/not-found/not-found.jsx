@@ -1,7 +1,12 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
+import {MainPath} from '../../constants/paths';
 
 import Logo from '../logo/logo';
 import UserBlock from '../user-block/user-block';
+
+import './not-found.css';
 
 const NotFound = () => {
   return (
@@ -14,8 +19,12 @@ const NotFound = () => {
         <UserBlock/>
       </header>
 
+      <div className="not-found">
+        <Link className="not-found__main-link" to={MainPath.INDEX}>Go to main page</Link>
+      </div>
+
       <footer className="page-footer">
-        <Logo isLight={true}/>
+        <Logo isLight/>
 
         <div className="copyright">
           <p>© 2019 What to watch Ltd.</p>

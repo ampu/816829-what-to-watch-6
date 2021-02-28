@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {BORDER_BOTTOM_STYLE} from '../../constants/styles';
 import {formatRating} from '../../utils/movie-util';
 import {formatDate} from '../../utils/date-util';
 
-const MovieReview = ({movie = {}, review = {}}) => {
-  const {
-    borderBottomStyle,
-  } = movie;
-
+const MovieReview = ({review = {}}) => {
   const {
     userName = ``,
     text = ``,
@@ -17,7 +14,7 @@ const MovieReview = ({movie = {}, review = {}}) => {
   } = review;
 
   return (
-    <div className="review" style={borderBottomStyle}>
+    <div className="review" style={BORDER_BOTTOM_STYLE}>
       <blockquote className="review__quote">
         {text && <p className="review__text">{text}</p>}
 
@@ -37,9 +34,6 @@ const MovieReview = ({movie = {}, review = {}}) => {
 };
 
 MovieReview.propTypes = {
-  movie: PropTypes.shape({
-    borderBottomStyle: PropTypes.object,
-  }),
   review: PropTypes.shape({
     userName: PropTypes.string,
     text: PropTypes.string,

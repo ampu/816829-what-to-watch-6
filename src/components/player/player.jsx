@@ -1,29 +1,36 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useCallback, useEffect, useState, useRef} from 'react';
 import PropTypes from 'prop-types';
-import {useHistory} from 'react-router-dom';
+import {Redirect, useHistory} from 'react-router-dom';
+import {connect} from 'react-redux';
 import getClassName from 'classnames';
 
+import {MainPath} from '../../constants/paths';
 import {formatDuration, getProgress} from '../../utils/date-util';
+import OperationStatus from '../../constants/operation-status';
+import {selectMovieById} from '../../store/selectors';
 
 import PauseButton from '../pause-button/pause-button';
 import PlayButton from '../play-button/play-button';
+
 import FullscreenButton from '../fullscreen-button/fullscreen-button';
+import SpinnerLoading from '../spinner-loading/spinner-loading';
+import Maintenance from '../maintenance/maintenance';
 
 import './player.css';
 
-const Player = ({movie = {}}) => {
+const Player = ({moviesStatus, movie = {}}) => {
 
   const {
     title = ``,
     video,
   } = movie;
 
-  const [durationSeconds, setDurationSeconds] = React.useState(0);
+  const [durationSeconds, setDurationSeconds] = useState(0);
   // todo: implement progress slider drag-n-drop
-  const [progress, setProgress] = React.useState(0);
-  const [isPlaying, setPlaying] = React.useState(false);
+  const [progress, setProgress] = useState(0);
+  const [isPlaying, setPlaying] = useState(false);
 
-  const videoRef = React.useRef();
+  const videoRef = useRef();
 
   const handlePlayClick = useCallback(() => {
     videoRef.current.play();
@@ -70,6 +77,18 @@ const Player = ({movie = {}}) => {
     [`player__time-value--active`]: durationSeconds > 0,
   };
 
+  if (moviesStatus === OperationStatus.PENDING) {
+    return <SpinnerLoading/>;
+  }
+
+  if (moviesStatus === OperationStatus.REJECTED) {
+    return <Maintenance/>;
+  }
+
+  if (!movie.id) {
+    return <Redirect to={MainPath.NOT_FOUND}/>;
+  }
+
   return (
     <div className="player">
       <video ref={videoRef} src={video} className="player__video" poster="img/player-poster.jpg"
@@ -107,10 +126,19 @@ const Player = ({movie = {}}) => {
 };
 
 Player.propTypes = {
+  moviesStatus: PropTypes.oneOf(Object.values(OperationStatus)),
   movie: PropTypes.shape({
     title: PropTypes.string,
-    video: PropTypes.string,
+    video: PropTypes.string.isRequired,
   }),
 };
 
-export default Player;
+const mapStateToProps = (state, {movieId}) => {
+  return {
+    moviesStatus: state.moviesStatus,
+    movie: selectMovieById(state, movieId),
+  };
+};
+
+export {Player};
+export default connect(mapStateToProps)(Player);

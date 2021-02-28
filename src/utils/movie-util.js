@@ -1,4 +1,4 @@
-import {ALL_GENRES} from '../constants/genre';
+import {ALL_GENRES, GENRES_CAPACITY} from '../constants/genre';
 
 const RATING_FORMAT = {
   locale: `ru-RU`,
@@ -41,7 +41,11 @@ const formatScoresCount = (scoresCount) => {
 const getGenresFromMovies = (movies) => {
   const genres = Array.from(new Set(movies.map((movie) => movie.genre)));
 
-  return genres.sort((genre, anotherGenre) => genre.localeCompare(anotherGenre));
+  genres.sort((genre, anotherGenre) => genre.localeCompare(anotherGenre));
+
+  genres.unshift(ALL_GENRES);
+
+  return genres.slice(0, GENRES_CAPACITY);
 };
 
 /**
@@ -50,7 +54,7 @@ const getGenresFromMovies = (movies) => {
  * @param {String} genre
  * @return {Object[]}
  */
-const getAlikeMovies = (movies, {id, genre}) => {
+const getAlikeMovies = (movies, {id, genre} = {}) => {
   return movies.filter((movie) => movie.id !== id && movie.genre === genre);
 };
 
@@ -59,7 +63,7 @@ const getAlikeMovies = (movies, {id, genre}) => {
  * @param {String} genre
  * @return {Object[]}
  */
-const getGenreMovies = (movies, genre) => {
+const getMoviesByGenre = (movies, genre) => {
   return genre === ALL_GENRES
     ? movies
     : movies.filter((movie) => movie.genre === genre);
@@ -71,5 +75,5 @@ export {
   formatScoresCount,
   getGenresFromMovies,
   getAlikeMovies,
-  getGenreMovies,
+  getMoviesByGenre,
 };

@@ -13,9 +13,6 @@ const ApiMovieField = {
   PREVIEW_VIDEO_LINK: `preview_video_link`,
 };
 
-const SECONDARY_BACKGROUND_STYLE = {backgroundColor: `rgba(255, 255, 255, 0.24)`};
-const BORDER_BOTTOM_STYLE = {borderBottomStyle: `rgba(255, 255, 255, 0.24)`};
-
 const importApiMovie = ({
   id = ``,
   name = ``,
@@ -54,11 +51,12 @@ const importApiMovie = ({
     video,
     videoPreview,
     primaryBackgroundStyle: backgroundColor ? {backgroundColor} : {},
-    secondaryBackgroundStyle: SECONDARY_BACKGROUND_STYLE,
-    borderBottomStyle: BORDER_BOTTOM_STYLE,
   };
 };
 
+const importApiMovies = (apiMovies) => apiMovies.map(importApiMovie);
+
 export {
   importApiMovie,
+  importApiMovies,
 };
