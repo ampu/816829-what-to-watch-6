@@ -1,9 +1,9 @@
 import React, {useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {useHistory} from 'react-router-dom';
+import getClassName from 'classnames';
 
 import {formatDuration, getProgress} from '../../utils/date-util';
-import {getClassName} from '../../utils/dom-util';
 
 import PauseButton from '../pause-button/pause-button';
 import PlayButton from '../play-button/play-button';

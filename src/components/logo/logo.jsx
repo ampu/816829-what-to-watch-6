@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {NavLink} from 'react-router-dom';
+import getClassName from 'classnames';
 
 import {MainPath} from '../../constants/paths';
-import {getClassName} from '../../utils/dom-util';
 
 import './logo.css';
 

@@ -1,5 +1,3 @@
-import {GENRES} from './genre';
-
 const MainPath = {
   INDEX: `/`,
   SIGN_IN: `/login`,
@@ -15,10 +13,10 @@ const MoviePath = {
   MOVIE_REVIEWS: `/films/:id/reviews`,
 };
 
-const GENRE_PATH = `/:genre(${GENRES.map((genre) => genre.slug).join(`|`)})`;
+const MOVIE_PATHS = [MainPath.MOVIE, ...Object.values(MoviePath)];
 
 export {
   MainPath,
   MoviePath,
-  GENRE_PATH,
+  MOVIE_PATHS,
 };

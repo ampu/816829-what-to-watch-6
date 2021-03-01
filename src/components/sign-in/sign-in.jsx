@@ -1,7 +1,6 @@
 import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
-
-import {getClassName} from '../../utils/dom-util';
+import getClassName from 'classnames';
 
 import Logo from '../logo/logo';
 

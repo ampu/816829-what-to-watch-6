@@ -4,7 +4,6 @@ import {generatePath, Link} from 'react-router-dom';
 
 import {MainPath} from '../../constants/paths';
 import PosterSize from '../../constants/poster-size';
-import {getStyle} from '../../utils/movie-util';
 
 import Logo from '../logo/logo';
 import UserBlock from '../user-block/user-block';
@@ -15,11 +14,11 @@ import AddReviewForm from './add-review-form';
 const AddReviewPage = ({movie} = {}) => {
   const {
     title = ``,
-    backgroundColor,
+    primaryBackgroundStyle,
   } = movie;
 
   return (
-    <section className="movie-card movie-card--full" style={getStyle(`backgroundColor`, backgroundColor)}>
+    <section className="movie-card movie-card--full" style={primaryBackgroundStyle}>
       <div className="movie-card__header">
         <MovieBackground movie={movie}/>
 
@@ -56,7 +55,7 @@ AddReviewPage.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string,
-    backgroundColor: PropTypes.string,
+    primaryBackgroundStyle: PropTypes.object,
   }).isRequired,
 };
 

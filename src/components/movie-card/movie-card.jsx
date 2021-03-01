@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {getStyle} from '../../utils/movie-util';
-
 import Logo from '../logo/logo';
 import UserBlock from '../user-block/user-block';
 import MoviePoster from '../movie-poster/movie-poster';
@@ -12,11 +10,11 @@ import MovieBackground from '../movie-background/movie-background';
 const MovieCard = ({movie = {}}) => {
   const {
     title = ``,
-    backgroundColor,
+    primaryBackgroundStyle,
   } = movie;
 
   return (
-    <section className="movie-card" style={getStyle(`backgroundColor`, backgroundColor)}>
+    <section className="movie-card" style={primaryBackgroundStyle}>
       <MovieBackground movie={movie}/>
 
       <h1 className="visually-hidden">{title}</h1>
@@ -41,7 +39,7 @@ const MovieCard = ({movie = {}}) => {
 MovieCard.propTypes = {
   movie: PropTypes.shape({
     title: PropTypes.string,
-    backgroundColor: PropTypes.string,
+    primaryBackgroundStyle: PropTypes.object,
   }),
 };
 
