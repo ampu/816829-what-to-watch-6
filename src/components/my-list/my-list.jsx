@@ -4,7 +4,6 @@ import Logo from '../logo/logo';
 import MoviesList from '../movies-list/movies-list';
 import UserBlock from '../user-block/user-block';
 
-
 const MyList = ({movies = []}) => {
   return (
     <div className="user-page">
@@ -36,6 +35,5 @@ const MyList = ({movies = []}) => {
 MyList.propTypes = {
   movies: MoviesList.propTypes.movies,
 };
-
 
 export default MyList;

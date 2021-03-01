@@ -13,7 +13,6 @@ import MovieDescription from '../movie-description/movie-description';
 import MovieBackground from '../movie-background/movie-background';
 import MovieInfo from './movie-info';
 
-
 const FullMovieCard = ({movie = {}, alikeMovies = []}) => {
 
   const {
@@ -27,7 +26,9 @@ const FullMovieCard = ({movie = {}, alikeMovies = []}) => {
     </section>;
 
   return <>
-    <section className="movie-card movie-card--full" style={getStyle(`backgroundColor`, backgroundColor)}>
+    <section className="movie-card movie-card--full"
+      style={getStyle(`backgroundColor`, backgroundColor)}>
+
       <div className="movie-card__hero">
         <MovieBackground movie={movie}/>
 
@@ -41,7 +42,9 @@ const FullMovieCard = ({movie = {}, alikeMovies = []}) => {
 
         <div className="movie-card__wrap">
           <MovieDescription movie={movie}>
-            <Link className="btn movie-card__button" to={generatePath(MainPath.ADD_REVIEW, movie)}>Add review</Link>
+            <Link className="btn movie-card__button" to={generatePath(MainPath.ADD_REVIEW, movie)}>
+              Add review
+            </Link>
           </MovieDescription>
         </div>
       </div>
@@ -72,6 +75,5 @@ FullMovieCard.propTypes = {
   }).isRequired,
   alikeMovies: MoviesList.propTypes.movies,
 };
-
 
 export default FullMovieCard;

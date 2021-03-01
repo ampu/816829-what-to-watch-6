@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const FullscreenButton = (props = {}) => {
   return (
     <button type="button" {...props}>
@@ -11,6 +10,5 @@ const FullscreenButton = (props = {}) => {
     </button>
   );
 };
-
 
 export default FullscreenButton;

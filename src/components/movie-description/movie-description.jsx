@@ -7,7 +7,6 @@ import {MainPath} from '../../constants/paths';
 import PlayButton from '../play-button/play-button';
 import MyListButton from '../my-list-button/my-list-button';
 
-
 const MovieDescription = ({movie = {}, children}) => {
   const {
     title = ``,
@@ -56,6 +55,5 @@ MovieDescription.propTypes = {
   withAddReviewButton: PropTypes.bool,
   children: PropTypes.any,
 };
-
 
 export default MovieDescription;

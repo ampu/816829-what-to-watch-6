@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 const MovieBackground = ({movie} = {}) => {
   const {
     title = ``,
@@ -21,6 +20,5 @@ MovieBackground.propTypes = {
     background: PropTypes.string,
   }),
 };
-
 
 export default MovieBackground;

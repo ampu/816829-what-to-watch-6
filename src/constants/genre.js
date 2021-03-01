@@ -52,7 +52,6 @@ const Genre = {
 
 const GENRES = Object.values(Genre);
 
-
 export {
   Genre,
   GENRES,

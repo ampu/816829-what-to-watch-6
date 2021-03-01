@@ -1,6 +1,5 @@
 import {GENRES} from './genre';
 
-
 const MainPath = {
   INDEX: `/`,
   SIGN_IN: `/login`,
@@ -17,7 +16,6 @@ const MoviePath = {
 };
 
 const GENRE_PATH = `/:genre(${GENRES.map((genre) => genre.slug).join(`|`)})`;
-
 
 export {
   MainPath,

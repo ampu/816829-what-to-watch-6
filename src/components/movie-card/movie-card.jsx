@@ -9,7 +9,6 @@ import MoviePoster from '../movie-poster/movie-poster';
 import MovieDescription from '../movie-description/movie-description';
 import MovieBackground from '../movie-background/movie-background';
 
-
 const MovieCard = ({movie = {}}) => {
   const {
     title = ``,
@@ -45,6 +44,5 @@ MovieCard.propTypes = {
     backgroundColor: PropTypes.string,
   }),
 };
-
 
 export default MovieCard;

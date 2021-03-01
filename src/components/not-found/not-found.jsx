@@ -3,7 +3,6 @@ import React from 'react';
 import Logo from '../logo/logo';
 import UserBlock from '../user-block/user-block';
 
-
 const NotFound = () => {
   return (
     <div className="user-page">
@@ -25,8 +24,5 @@ const NotFound = () => {
     </div>
   );
 };
-
-NotFound.propTypes = {};
-
 
 export default NotFound;
