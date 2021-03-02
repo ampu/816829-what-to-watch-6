@@ -7,7 +7,7 @@ const MovieBackground = ({movie} = {}) => {
     background = ``,
   } = movie;
 
-  return (
+  return background && (
     <div className="movie-card__bg">
       <img src={background} alt={title}/>
     </div>

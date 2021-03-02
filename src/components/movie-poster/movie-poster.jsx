@@ -16,7 +16,7 @@ const MoviePoster = ({movie = {}, size = PosterSize.DEFAULT}) => {
     [`movie-card__poster--big`]: size === PosterSize.BIG,
   };
 
-  return (
+  return poster && (
     <div className={getClassName(classMap)}>
       <img src={poster} alt={`${title} poster`} width="218" height="327"/>
     </div>

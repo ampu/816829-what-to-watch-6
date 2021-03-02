@@ -1,15 +1,12 @@
 import React, {useState, useCallback} from 'react';
-import PropTypes from 'prop-types';
+
+import {SECONDARY_BACKGROUND_STYLE} from '../../constants/styles';
 
 import AddReviewStarList from './add-review-star-list';
 
 const MAX_RATING = 10;
 
-const AddReviewForm = ({movie = {}} = {}) => {
-  const {
-    secondaryBackgroundStyle,
-  } = movie;
-
+const AddReviewForm = () => {
   const [text, setText] = useState(``);
   const handleTextChange = useCallback((evt) => {
     setText(evt.target.value);
@@ -32,7 +29,7 @@ const AddReviewForm = ({movie = {}} = {}) => {
         </div>
       </div>
 
-      <div className="add-review__text" style={secondaryBackgroundStyle}>
+      <div className="add-review__text" style={SECONDARY_BACKGROUND_STYLE}>
 
         <textarea className="add-review__textarea"
           name="review-text" id="review-text" placeholder="Review text" required
@@ -44,12 +41,6 @@ const AddReviewForm = ({movie = {}} = {}) => {
       </div>
     </form>
   );
-};
-
-AddReviewForm.propTypes = {
-  movie: PropTypes.shape({
-    secondaryBackgroundStyle: PropTypes.object,
-  }),
 };
 
 export default AddReviewForm;

@@ -11,39 +11,28 @@ import FullMovieCard from '../full-movie-card/full-movie-card';
 import AddReviewPage from '../add-review-page/add-review-page';
 import Player from '../player/player';
 
-const App = ({promoMovie = {}, movies = []}) => {
+const App = () => {
   return (
     <HashRouter>
       <Switch>
         <Route exact path={MainPath.INDEX}>
-          <Main promoMovie={promoMovie} movies={movies}/>
+          <Main/>
         </Route>
         <Route exact path={MainPath.SIGN_IN}>
           <SignIn/>
         </Route>
         <Route exact path={MainPath.MY_LIST}>
-          <MyList movies={movies}/>
+          <MyList/>
         </Route>
-        <Route exact path={MOVIE_PATHS}>
-          <FullMovieCard movies={movies} movie={promoMovie}/>
-        </Route>
-        <Route exact path={MainPath.ADD_REVIEW}>
-          <AddReviewPage movie={promoMovie}/>
-        </Route>
-        <Route exact path={MainPath.PLAYER}>
-          <Player movie={promoMovie}/>
-        </Route>
+        <Route exact path={MOVIE_PATHS} render={({match}) => <FullMovieCard movieId={match.params.id}/>}/>
+        <Route exact path={MainPath.ADD_REVIEW} render={({match}) => <AddReviewPage movieId={match.params.id}/>}/>
+        <Route exact path={MainPath.PLAYER} render={({match}) => <Player movieId={match.params.id}/>}/>
         <Route>
           <NotFound/>
         </Route>
       </Switch>
     </HashRouter>
   );
-};
-
-App.propTypes = {
-  promoMovie: FullMovieCard.propTypes.movie,
-  movies: MyList.propTypes.movies,
 };
 
 export default App;

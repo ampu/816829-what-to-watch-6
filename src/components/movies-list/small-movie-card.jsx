@@ -29,7 +29,7 @@ const SmallMovieCard = ({movie = {}}) => {
           <video className="small-movie-card__player"
             src={videoPreview} poster={preview}
             width="280" height="175"
-            muted={true} autoPlay={true}/>
+            muted autoPlay/>
         )}
       </div>
 

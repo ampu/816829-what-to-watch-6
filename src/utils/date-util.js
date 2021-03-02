@@ -39,7 +39,7 @@ const formatDuration = (totalSeconds, formatTemplate, invalidDurationSubstitute 
 };
 
 const getProgress = (totalSeconds, currentSeconds) => {
-  return clamp(currentSeconds / totalSeconds * PROGRESS_CONSTRAINT.max, PROGRESS_CONSTRAINT);
+  return clamp(currentSeconds / totalSeconds * PROGRESS_CONSTRAINT.max || 0, PROGRESS_CONSTRAINT);
 };
 
 const clamp = (value, {min, max} = {}) => {

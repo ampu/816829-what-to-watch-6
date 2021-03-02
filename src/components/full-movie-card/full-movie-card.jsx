@@ -1,10 +1,12 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {Link, generatePath} from 'react-router-dom';
+import {Link, Redirect, generatePath} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import {MainPath} from '../../constants/paths';
 import PosterSize from '../../constants/poster-size';
-import {getAlikeMovies} from '../../utils/movie-util';
+import {OperationStatus, OPERATION_STATUSES} from '../../constants/operation-status';
+import {selectAlikeMovies, selectMovieById} from '../../store/selectors';
 
 import Logo from '../logo/logo';
 import MoviesList from '../movies-list/movies-list';
@@ -12,20 +14,26 @@ import UserBlock from '../user-block/user-block';
 import MovieDescription from '../movie-description/movie-description';
 import MovieBackground from '../movie-background/movie-background';
 import MovieInfo from './movie-info';
+import SpinnerLoading from '../spinner-loading/spinner-loading';
+import Maintenance from '../maintenance/maintenance';
 
-const FullMovieCard = ({movies = [], movie = {}}) => {
+const FullMovieCard = ({moviesStatus, movie = {}, alikeMovies = []}) => {
+
+  if (moviesStatus === OperationStatus.PENDING) {
+    return <SpinnerLoading/>;
+  }
+
+  if (moviesStatus === OperationStatus.REJECTED) {
+    return <Maintenance/>;
+  }
+
+  if (!movie.id) {
+    return <Redirect to={MainPath.NOT_FOUND}/>;
+  }
 
   const {
     primaryBackgroundStyle,
   } = movie;
-
-  const alikeMovies = useMemo(() => getAlikeMovies(movies, movie), [movies, movie]);
-
-  const moreLikeThis = alikeMovies.length > 0 &&
-    <section className="catalog catalog--like-this">
-      <h2 className="catalog__title">More like this</h2>
-      <MoviesList movies={alikeMovies}/>
-    </section>;
 
   return <>
     <section className="movie-card movie-card--full" style={primaryBackgroundStyle}>
@@ -56,10 +64,15 @@ const FullMovieCard = ({movies = [], movie = {}}) => {
     </section>
 
     <div className="page-content">
-      {moreLikeThis}
+      {alikeMovies.length > 0 && (
+        <section className="catalog catalog--like-this">
+          <h2 className="catalog__title">More like this</h2>
+          <MoviesList movies={alikeMovies}/>
+        </section>
+      )}
 
       <footer className="page-footer">
-        <Logo isLight={true}/>
+        <Logo isLight/>
 
         <div className="copyright">
           <p>© 2019 What to watch Ltd.</p>
@@ -70,11 +83,21 @@ const FullMovieCard = ({movies = [], movie = {}}) => {
 };
 
 FullMovieCard.propTypes = {
-  movies: MoviesList.propTypes.movies,
+  moviesStatus: PropTypes.oneOf(OPERATION_STATUSES),
   movie: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     primaryBackgroundStyle: PropTypes.object,
-  }).isRequired,
+  }),
+  alikeMovies: MoviesList.propTypes.movies,
 };
 
-export default FullMovieCard;
+const mapStateToProps = (state, {movieId}) => {
+  return {
+    moviesStatus: state.moviesStatus,
+    movie: selectMovieById(state, movieId),
+    alikeMovies: selectAlikeMovies(state, movieId),
+  };
+};
+
+export {FullMovieCard};
+export default connect(mapStateToProps)(FullMovieCard);

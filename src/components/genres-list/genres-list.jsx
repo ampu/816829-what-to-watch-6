@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import GenresListItem from './genres-list-item';
-import {setGenre, syncGenreMovies} from '../../store/actions';
+import {setGenre} from '../../store/actions/genre-actions';
+import {selectGenres} from '../../store/selectors';
 
 const GenresList = ({genres = [], activeGenre = ``, onGenreChange}) => {
   return (
@@ -25,17 +26,15 @@ GenresList.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  genres: state.genres,
+  genres: selectGenres(state),
   activeGenre: state.genre,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreChange(genre) {
     dispatch(setGenre(genre));
-    dispatch(syncGenreMovies());
   },
 });
 
 export {GenresList};
-
 export default connect(mapStateToProps, mapDispatchToProps)(GenresList);

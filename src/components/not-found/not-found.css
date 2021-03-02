@@ -1,0 +1,21 @@
+.not-found {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found__main-link {
+  font-size: 28px;
+  text-align: center;
+
+  color: #d9cd8d;
+}
+
+.not-found__main-link:hover {
+  text-decoration: none;
+}
+
+.not-found__main-link:active {
+  color: rgba(217, 205, 141, 0.7);
+}

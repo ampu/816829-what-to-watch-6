@@ -5,7 +5,7 @@ import getClassName from 'classnames';
 
 import {MainPath} from '../../constants/paths';
 
-const GenresListItem = ({genre = {}, onGenreChange, isActive = false}) => {
+const GenresListItem = ({genre, onGenreChange, isActive = false}) => {
 
   const classMap = {
     [`catalog__genres-item`]: true,
@@ -26,7 +26,7 @@ const GenresListItem = ({genre = {}, onGenreChange, isActive = false}) => {
 
 GenresListItem.propTypes = {
   onGenreChange: PropTypes.func.isRequired,
-  genre: PropTypes.string,
+  genre: PropTypes.string.isRequired,
   isActive: PropTypes.bool,
 };
 

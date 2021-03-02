@@ -3,21 +3,16 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
 import store from './store/store';
-import {setMovies, syncGenreMovies, syncGenres} from './store/actions';
-import {generateMovies, generatePromoMovie} from './mocks/movie-mock';
-import {ensureWithReviews} from './mocks/review-mock';
+import {preload} from './store/operations';
 
 import App from './components/app/app';
 
-const promoMovie = ensureWithReviews(generatePromoMovie());
-const movies = generateMovies().map(ensureWithReviews);
+import './index.css';
 
-store.dispatch(setMovies(movies));
-store.dispatch(syncGenres());
-store.dispatch(syncGenreMovies());
+store.dispatch(preload());
 
 ReactDOM.render((
   <Provider store={store}>
-    <App promoMovie={promoMovie} movies={movies}/>
+    <App/>
   </Provider>
 ), document.querySelector(`#root`));

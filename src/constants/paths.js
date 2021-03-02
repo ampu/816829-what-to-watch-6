@@ -5,6 +5,7 @@ const MainPath = {
   MOVIE: `/films/:id`,
   ADD_REVIEW: `/films/:id/review`,
   PLAYER: `/player/:id`,
+  NOT_FOUND: `/not-found`,
 };
 
 const MoviePath = {
@@ -13,7 +14,7 @@ const MoviePath = {
   MOVIE_REVIEWS: `/films/:id/reviews`,
 };
 
-const MOVIE_PATHS = [MainPath.MOVIE, ...Object.values(MoviePath)];
+const MOVIE_PATHS = Array.from(new Set([MainPath.MOVIE, ...Object.values(MoviePath)]));
 
 export {
   MainPath,
