@@ -1,6 +1,6 @@
 import {ALL_GENRES} from '../constants/genre';
 import ActionType from '../constants/action-type';
-import OperationStatus from '../constants/operation-status';
+import {OperationStatus} from '../constants/operation-status';
 
 import {doSetMoviesStatus, doSetMovies, doSetPromoStatus, doSetPromoMovie} from './actions/movies-actions';
 import {doSetLoginStatus, doSetUser, doSetMyListStatus, doSetMyList} from './actions/user-actions';
@@ -18,7 +18,7 @@ const INITIAL_STATE = {
   genre: ALL_GENRES,
 };
 
-const reduce = (state = INITIAL_STATE, action) => {
+const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ActionType.SET_MOVIES_STATUS:
       return doSetMoviesStatus(state, action.payload);
@@ -45,5 +45,5 @@ const reduce = (state = INITIAL_STATE, action) => {
 };
 
 export {
-  reduce,
+  reducer,
 };

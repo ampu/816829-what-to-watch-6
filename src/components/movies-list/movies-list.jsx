@@ -18,10 +18,7 @@ const MoviesList = ({movies}) => {
   }, [setLimit]);
 
   const renderedMovies = useMemo(() => {
-    return Array.from({length: Math.min(limit, movies.length)}, (_, index) => {
-      const movie = movies[index];
-      return <SmallMovieCard key={movie.id} movie={movie}/>;
-    });
+    return movies.slice(0, limit).map((movie) => <SmallMovieCard key={movie.id} movie={movie}/>);
   }, [movies, limit]);
 
   return <>
@@ -33,7 +30,7 @@ const MoviesList = ({movies}) => {
 };
 
 MoviesList.propTypes = {
-  movies: PropTypes.arrayOf(SmallMovieCard.propTypes.movie),
+  movies: PropTypes.arrayOf(SmallMovieCard.propTypes.movie).isRequired,
 };
 
 export default MoviesList;

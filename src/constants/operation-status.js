@@ -3,7 +3,11 @@ const OperationStatus = {
   PENDING: `pending`,
   RESOLVED: `resolved`,
   REJECTED: `rejected`,
-  UNAUTHORIZED: `unauthorized`,
 };
 
-export default OperationStatus;
+const OPERATION_STATUSES = Object.values(OperationStatus);
+
+export {
+  OperationStatus,
+  OPERATION_STATUSES,
+};

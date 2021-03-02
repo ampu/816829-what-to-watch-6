@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MovieReviewsColumn from './movie-reviews-column';
+import MovieReviewsColumn, {MovieReviewsColumn as ControlledMovieReviewsColumn} from './movie-reviews-column';
 
 const COLUMN_CAPACITY = 3;
 
@@ -19,7 +19,7 @@ const MovieReviews = ({reviews = []} = {}) => {
 };
 
 MovieReviews.propTypes = {
-  reviews: MovieReviewsColumn.propTypes.reviews,
+  reviews: ControlledMovieReviewsColumn.propTypes.reviews,
 };
 
 export default MovieReviews;

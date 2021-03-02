@@ -1,7 +1,7 @@
 import provider from '../providers/provider';
 import {setMovies, setMoviesStatus, setPromoMovie, setPromoStatus} from './actions/movies-actions';
 import {setLoginStatus, setMyList, setMyListStatus, setUser} from './actions/user-actions';
-import OperationStatus from '../constants/operation-status';
+import {OperationStatus} from '../constants/operation-status';
 
 const preload = () => (dispatch) => {
   return Promise.all([

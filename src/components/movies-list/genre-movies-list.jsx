@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import OperationStatus from '../../constants/operation-status';
+import {OperationStatus, OPERATION_STATUSES} from '../../constants/operation-status';
 import {selectGenreMovies} from '../../store/selectors';
 
 import MoviesList from './movies-list';
@@ -23,7 +23,7 @@ const GenreMoviesList = ({moviesStatus, movies}) => {
 };
 
 GenreMoviesList.propTypes = {
-  moviesStatus: PropTypes.oneOf(Object.values(OperationStatus)),
+  moviesStatus: PropTypes.oneOf(OPERATION_STATUSES),
   movies: MoviesList.propTypes.movies,
 };
 

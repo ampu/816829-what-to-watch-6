@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 
 import {MainPath} from '../../constants/paths';
 import PosterSize from '../../constants/poster-size';
-import OperationStatus from '../../constants/operation-status';
+import {OperationStatus, OPERATION_STATUSES} from '../../constants/operation-status';
 import {selectAlikeMovies, selectMovieById} from '../../store/selectors';
 
 import Logo from '../logo/logo';
@@ -34,12 +34,6 @@ const FullMovieCard = ({moviesStatus, movie = {}, alikeMovies = []}) => {
   const {
     primaryBackgroundStyle,
   } = movie;
-
-  const moreLikeThis = alikeMovies.length > 0 &&
-    <section className="catalog catalog--like-this">
-      <h2 className="catalog__title">More like this</h2>
-      <MoviesList movies={alikeMovies}/>
-    </section>;
 
   return <>
     <section className="movie-card movie-card--full" style={primaryBackgroundStyle}>
@@ -70,7 +64,12 @@ const FullMovieCard = ({moviesStatus, movie = {}, alikeMovies = []}) => {
     </section>
 
     <div className="page-content">
-      {moreLikeThis}
+      {alikeMovies.length > 0 && (
+        <section className="catalog catalog--like-this">
+          <h2 className="catalog__title">More like this</h2>
+          <MoviesList movies={alikeMovies}/>
+        </section>
+      )}
 
       <footer className="page-footer">
         <Logo isLight/>
@@ -84,7 +83,7 @@ const FullMovieCard = ({moviesStatus, movie = {}, alikeMovies = []}) => {
 };
 
 FullMovieCard.propTypes = {
-  moviesStatus: PropTypes.oneOf(Object.values(OperationStatus)),
+  moviesStatus: PropTypes.oneOf(OPERATION_STATUSES),
   movie: PropTypes.shape({
     id: PropTypes.string,
     primaryBackgroundStyle: PropTypes.object,

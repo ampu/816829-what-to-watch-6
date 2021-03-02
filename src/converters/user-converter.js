@@ -5,7 +5,7 @@ const importApiUser = ({
   avatar_url: avatar = ``,
 }) => {
   return {
-    id,
+    id: id.toString(),
     email,
     name,
     avatar,

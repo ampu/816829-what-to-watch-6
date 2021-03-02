@@ -6,7 +6,7 @@ import getClassName from 'classnames';
 
 import {MainPath} from '../../constants/paths';
 import {formatDuration, getProgress} from '../../utils/date-util';
-import OperationStatus from '../../constants/operation-status';
+import {OperationStatus, OPERATION_STATUSES} from '../../constants/operation-status';
 import {selectMovieById} from '../../store/selectors';
 
 import PauseButton from '../pause-button/pause-button';
@@ -126,7 +126,7 @@ const Player = ({moviesStatus, movie = {}}) => {
 };
 
 Player.propTypes = {
-  moviesStatus: PropTypes.oneOf(Object.values(OperationStatus)),
+  moviesStatus: PropTypes.oneOf(OPERATION_STATUSES),
   movie: PropTypes.shape({
     title: PropTypes.string,
     video: PropTypes.string.isRequired,

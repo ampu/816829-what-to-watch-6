@@ -1,5 +1,5 @@
 const importApiReview = ({
-  id = ``,
+  id = 0,
   user: {
     id: userId = ``,
     name: userName = ``,

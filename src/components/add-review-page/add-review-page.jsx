@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 
 import {MainPath} from '../../constants/paths';
 import PosterSize from '../../constants/poster-size';
-import OperationStatus from '../../constants/operation-status';
+import {OperationStatus, OPERATION_STATUSES} from '../../constants/operation-status';
 import {selectMovieById} from '../../store/selectors';
 
 import Logo from '../logo/logo';
@@ -70,7 +70,7 @@ const AddReviewPage = ({moviesStatus, movie} = {}) => {
 };
 
 AddReviewPage.propTypes = {
-  moviesStatus: PropTypes.oneOf(Object.values(OperationStatus)),
+  moviesStatus: PropTypes.oneOf(OPERATION_STATUSES),
   movie: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string,
