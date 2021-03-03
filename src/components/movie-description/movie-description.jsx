@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {generatePath, useHistory} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import {MainPath} from '../../constants/paths';
+import {OPERATION_STATUSES, OperationStatus} from '../../constants/operation-status';
 
 import PlayButton from '../play-button/play-button';
 import MyListButton from '../my-list-button/my-list-button';
 
-const MovieDescription = ({movie = {}, children}) => {
+const MovieDescription = ({loginStatus, movie = {}, children}) => {
   const {
     title = ``,
     genre = ``,
@@ -39,7 +41,11 @@ const MovieDescription = ({movie = {}, children}) => {
 
       <div className="movie-card__buttons">
         <PlayButton className="btn btn--play movie-card__button" onClick={handlePlayClick}/>
-        <MyListButton className="btn btn--list movie-card__button" isActive={isInMyList} onClick={handleMyListClick}/>
+
+        {loginStatus === OperationStatus.RESOLVED && (
+          <MyListButton className="btn btn--list movie-card__button" isActive={isInMyList} onClick={handleMyListClick}/>
+        )}
+
         {children}
       </div>
     </div>
@@ -47,6 +53,7 @@ const MovieDescription = ({movie = {}, children}) => {
 };
 
 MovieDescription.propTypes = {
+  loginStatus: PropTypes.oneOf(OPERATION_STATUSES),
   movie: PropTypes.shape({
     title: PropTypes.string,
     genre: PropTypes.string,
@@ -56,4 +63,9 @@ MovieDescription.propTypes = {
   children: PropTypes.any,
 };
 
-export default MovieDescription;
+const mapStateToProps = (state) => ({
+  loginStatus: state.loginStatus,
+});
+
+export {MovieDescription};
+export default connect(mapStateToProps)(MovieDescription);

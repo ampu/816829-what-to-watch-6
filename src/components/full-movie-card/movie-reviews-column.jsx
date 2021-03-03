@@ -1,12 +1,12 @@
-import React, {memo} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import MovieReview from './movie-review';
 
-const MovieReviewsColumn = ({reviews = [], offset = 0, limit = 0} = {}) => {
+const MovieReviewsColumn = ({reviews = []} = {}) => {
   return (
     <div className="movie-card__reviews-col">
-      {reviews.slice(offset, offset + limit).map((review) => <MovieReview key={review.id} review={review}/>)}
+      {reviews.map((review) => <MovieReview key={review.id} review={review}/>)}
     </div>
   );
 };
@@ -15,9 +15,6 @@ MovieReviewsColumn.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
   }).isRequired),
-  offset: PropTypes.number.isRequired,
-  limit: PropTypes.number.isRequired,
 };
 
-export {MovieReviewsColumn};
-export default memo(MovieReviewsColumn);
+export default MovieReviewsColumn;

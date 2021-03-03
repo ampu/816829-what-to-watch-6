@@ -7,7 +7,7 @@ const AddReviewStarList = ({maxRating}) => {
     const id = `star-${value}`;
 
     return (
-      <React.Fragment key={value}>
+      <React.Fragment key={id}>
         <input className="rating__input" id={id} type="radio" name="rating" value={value}/>
         <label className="rating__label" htmlFor={id}>Rating {value}</label>
       </React.Fragment>

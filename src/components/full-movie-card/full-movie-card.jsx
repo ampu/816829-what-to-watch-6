@@ -17,7 +17,7 @@ import MovieInfo from './movie-info';
 import SpinnerLoading from '../spinner-loading/spinner-loading';
 import Maintenance from '../maintenance/maintenance';
 
-const FullMovieCard = ({moviesStatus, movie = {}, alikeMovies = []}) => {
+const FullMovieCard = ({loginStatus, moviesStatus, movie = {}, alikeMovies = []}) => {
 
   if (moviesStatus === OperationStatus.PENDING) {
     return <SpinnerLoading/>;
@@ -51,9 +51,11 @@ const FullMovieCard = ({moviesStatus, movie = {}, alikeMovies = []}) => {
 
         <div className="movie-card__wrap">
           <MovieDescription movie={movie}>
-            <Link className="btn movie-card__button" to={generatePath(MainPath.ADD_REVIEW, movie)}>
-              Add review
-            </Link>
+            {loginStatus === OperationStatus.RESOLVED && (
+              <Link className="btn movie-card__button" to={generatePath(MainPath.ADD_REVIEW, movie)}>
+                Add review
+              </Link>
+            )}
           </MovieDescription>
         </div>
       </div>
@@ -83,6 +85,7 @@ const FullMovieCard = ({moviesStatus, movie = {}, alikeMovies = []}) => {
 };
 
 FullMovieCard.propTypes = {
+  loginStatus: PropTypes.oneOf(OPERATION_STATUSES),
   moviesStatus: PropTypes.oneOf(OPERATION_STATUSES),
   movie: PropTypes.shape({
     id: PropTypes.string,
@@ -93,6 +96,7 @@ FullMovieCard.propTypes = {
 
 const mapStateToProps = (state, {movieId}) => {
   return {
+    loginStatus: state.loginStatus,
     moviesStatus: state.moviesStatus,
     movie: selectMovieById(state, movieId),
     alikeMovies: selectAlikeMovies(state, movieId),

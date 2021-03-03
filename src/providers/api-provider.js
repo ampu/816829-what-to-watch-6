@@ -20,12 +20,26 @@ const ApiPath = {
   LOGOUT: `/logout`,
 };
 
-const createApiClient = () => {
-  return axios.create({
+const Status = {
+  UNAUTHORIZED: 401,
+};
+
+const createApiClient = (onUnauthorized) => {
+  const client = axios.create({
     baseURL: BASE_URL,
     timeout: REQUEST_TIMEOUT,
     withCredentials: true,
   });
+
+  client.interceptors.response.use((response) => response, (error) => {
+    const {response = {}} = error;
+    if (response.status === Status.UNAUTHORIZED) {
+      onUnauthorized();
+    }
+    throw error;
+  });
+
+  return client;
 };
 
 const importApiMovieFromResponse = (response) => importApiMovie(response.data);
@@ -35,8 +49,8 @@ const importApiReviewsFromResponse = (response) => importApiReviews(response.dat
 const importApiUserFromResponse = (response) => importApiUser(response.data);
 
 export default class ApiProvider {
-  constructor() {
-    this._client = createApiClient();
+  constructor(onUnauthorized) {
+    this._client = createApiClient(onUnauthorized);
   }
 
   /** @return {Promise<Array<{id:String}>>} */
@@ -88,10 +102,10 @@ export default class ApiProvider {
    * @return {Promise<{id:String}>}
    */
   async getReviews(movieId) {
-    const params = {
+    const url = generatePath(ApiPath.REVIEWS, {
       movieId,
-    };
-    return this._client.get(generatePath(ApiPath.REVIEWS, params))
+    });
+    return this._client.get(url)
       .then(importApiReviewsFromResponse);
   }
 

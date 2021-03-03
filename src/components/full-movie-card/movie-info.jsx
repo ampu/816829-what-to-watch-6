@@ -9,7 +9,7 @@ import MovieOverview from './movie-overview';
 import MovieDetails from './movie-details';
 
 import {useMatchPath} from '../../hooks/use-match-path';
-import MovieReviews from './movie-reviews';
+import MovieReviews, {MovieReviews as OriginalMovieReviews} from './movie-reviews';
 
 const MovieInfo = ({movie = {}, posterSize} = {}) => {
   return (
@@ -21,14 +21,16 @@ const MovieInfo = ({movie = {}, posterSize} = {}) => {
 
         {useMatchPath(MoviePath.MOVIE_OVERVIEW) && <MovieOverview movie={movie}/>}
         {useMatchPath(MoviePath.MOVIE_DETAILS) && <MovieDetails movie={movie}/>}
-        {useMatchPath(MoviePath.MOVIE_REVIEWS) && <MovieReviews movie={movie}/>}
+        {useMatchPath(MoviePath.MOVIE_REVIEWS) && <MovieReviews reviews={movie.reviews}/>}
       </div>
     </div>
   );
 };
 
 MovieInfo.propTypes = {
-  movie: PropTypes.object,
+  movie: PropTypes.shape({
+    reviews: OriginalMovieReviews.propTypes.reviews,
+  }),
   posterSize: MoviePoster.propTypes.size,
 };
 

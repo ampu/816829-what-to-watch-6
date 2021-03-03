@@ -1,0 +1,7 @@
+.sign-in__form--disabled {
+  filter: grayscale(100%);
+}
+
+.sign-in :disabled {
+  cursor: default;
+}

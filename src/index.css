@@ -14,3 +14,11 @@ body {
 .hidden {
   display: none;
 }
+
+.invisible {
+  visibility: hidden;
+}
+
+.user-page {
+  padding: 0;
+}
