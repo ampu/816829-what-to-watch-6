@@ -6,7 +6,7 @@ const doSetMoviesStatus = (state, moviesStatus) => ({...state, moviesStatus});
 const setMovies = (movies) => ({type: ActionType.SET_MOVIES, payload: movies});
 const doSetMovies = (state, movies) => ({...state, movies});
 
-const setPromoStatus = (promoStatus) => ({type: ActionType.SET_LOGIN_STATUS, payload: promoStatus});
+const setPromoStatus = (promoStatus) => ({type: ActionType.SET_PROMO_STATUS, payload: promoStatus});
 const doSetPromoStatus = (state, promoStatus) => ({...state, promoStatus});
 
 const setPromoMovie = (promoMovie) => ({type: ActionType.SET_PROMO_MOVIE, payload: promoMovie});

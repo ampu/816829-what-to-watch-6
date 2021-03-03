@@ -22,10 +22,10 @@ const App = () => {
         <Route exact path={MainPath.SIGN_IN}>
           <SignIn/>
         </Route>
-        <PrivateRoute exact path={MainPath.MY_LIST} render={() => <MyList/>}/>
         <Route exact path={MOVIE_PATHS} render={({match}) => <FullMovieCard movieId={match.params.id}/>}/>
-        <Route exact path={MainPath.ADD_REVIEW} render={({match}) => <AddReviewPage movieId={match.params.id}/>}/>
         <Route exact path={MainPath.PLAYER} render={({match}) => <Player movieId={match.params.id}/>}/>
+        <PrivateRoute exact path={MainPath.MY_LIST} render={() => <MyList/>}/>
+        <PrivateRoute exact path={MainPath.ADD_REVIEW} render={({match}) => <AddReviewPage movieId={match.params.id}/>}/>
         <Route>
           <NotFound/>
         </Route>
