@@ -4,10 +4,15 @@ import {generatePath, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {MainPath} from '../../constants/paths';
-import {OPERATION_STATUSES, OperationStatus} from '../../constants/operation-status';
+import OperationStatus from '../../constants/operation-status';
 
 import PlayButton from '../play-button/play-button';
 import MyListButton from '../my-list-button/my-list-button';
+
+import movieType from '../../typings/movie-type';
+import {selectLoginStatus} from '../../store/selectors/user-selectors';
+
+import operationStatusType from '../../typings/operation-status-type';
 
 const MovieDescription = ({loginStatus, movie = {}, children}) => {
   const {
@@ -18,17 +23,9 @@ const MovieDescription = ({loginStatus, movie = {}, children}) => {
 
   const history = useHistory();
 
-  const [isInMyList, setInMyList] = React.useState(false);
-
   const handlePlayClick = (evt) => {
     evt.preventDefault();
     history.push(generatePath(MainPath.PLAYER, movie));
-  };
-
-  const handleMyListClick = (evt) => {
-    evt.preventDefault();
-    // todo: implement this appropriately
-    setInMyList(!isInMyList);
   };
 
   return title && (
@@ -43,7 +40,7 @@ const MovieDescription = ({loginStatus, movie = {}, children}) => {
         <PlayButton className="btn btn--play movie-card__button" onClick={handlePlayClick}/>
 
         {loginStatus === OperationStatus.RESOLVED && (
-          <MyListButton className="btn btn--list movie-card__button" isActive={isInMyList} onClick={handleMyListClick}/>
+          <MyListButton className="btn btn--list movie-card__button" movie={movie}/>
         )}
 
         {children}
@@ -53,18 +50,17 @@ const MovieDescription = ({loginStatus, movie = {}, children}) => {
 };
 
 MovieDescription.propTypes = {
-  loginStatus: PropTypes.oneOf(OPERATION_STATUSES),
+  loginStatus: operationStatusType,
   movie: PropTypes.shape({
-    title: PropTypes.string,
-    genre: PropTypes.string,
-    year: PropTypes.number,
+    title: movieType.title,
+    genre: movieType.genre,
+    year: movieType.year,
   }),
-  withAddReviewButton: PropTypes.bool,
   children: PropTypes.any,
 };
 
 const mapStateToProps = (state) => ({
-  loginStatus: state.loginStatus,
+  loginStatus: selectLoginStatus(state),
 });
 
 export {MovieDescription};

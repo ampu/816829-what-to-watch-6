@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useMemo, useCallback} from 'react';
+import React, {memo, useState, useEffect, useMemo, useCallback} from 'react';
 import PropTypes from 'prop-types';
 
-import SmallMovieCard from './small-movie-card';
+import SmallMovieCard, {SmallMovieCard as OriginalSmallMovieCard} from './small-movie-card';
 import ShowMoreButton from '../show-more-button/show-more-button';
 
 const PAGE_LIMIT = 8;
@@ -31,7 +31,8 @@ const MoviesList = ({movies}) => {
 };
 
 MoviesList.propTypes = {
-  movies: PropTypes.arrayOf(SmallMovieCard.propTypes.movie).isRequired,
+  movies: PropTypes.arrayOf(OriginalSmallMovieCard.propTypes.movie).isRequired,
 };
 
-export default MoviesList;
+export {MoviesList};
+export default memo(MoviesList);

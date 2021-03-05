@@ -1,34 +1,46 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import {OperationStatus, OPERATION_STATUSES} from '../../constants/operation-status';
-import {selectGenreMovies} from '../../store/selectors';
+import OperationStatus from '../../constants/operation-status';
 
-import MoviesList from './movies-list';
+import {selectMoviesStatus} from '../../store/selectors/movie-selectors';
+import {selectGenreMovies} from '../../store/selectors/genre-selectors';
+
+import MoviesList, {MoviesList as OriginalMoviesList} from './movies-list';
 import SpinnerLoading from '../spinner-loading/spinner-loading';
 import Maintenance from '../maintenance/maintenance';
+import Container from '../container/container';
+
+import operationStatusType from '../../typings/operation-status-type';
 
 const GenreMoviesList = ({moviesStatus, movies}) => {
 
   if (moviesStatus === OperationStatus.PENDING) {
-    return <SpinnerLoading/>;
+    return (
+      <Container isCentered>
+        <SpinnerLoading/>
+      </Container>
+    );
   }
 
   if (moviesStatus === OperationStatus.REJECTED) {
-    return <Maintenance/>;
+    return (
+      <Container isCentered>
+        <Maintenance/>
+      </Container>
+    );
   }
 
   return <MoviesList movies={movies}/>;
 };
 
 GenreMoviesList.propTypes = {
-  moviesStatus: PropTypes.oneOf(OPERATION_STATUSES),
-  movies: MoviesList.propTypes.movies,
+  moviesStatus: operationStatusType,
+  movies: OriginalMoviesList.propTypes.movies,
 };
 
 const mapStateToProps = (state) => ({
-  moviesStatus: state.moviesStatus,
+  moviesStatus: selectMoviesStatus(state),
   movies: selectGenreMovies(state),
 });
 

@@ -5,26 +5,42 @@ import {connect} from 'react-redux';
 
 import {MainPath} from '../../constants/paths';
 import PosterSize from '../../constants/poster-size';
-import {OperationStatus, OPERATION_STATUSES} from '../../constants/operation-status';
-import {selectAlikeMovies, selectMovieById} from '../../store/selectors';
+import OperationStatus from '../../constants/operation-status';
+
+import {selectMovieById, selectMoviesStatus} from '../../store/selectors/movie-selectors';
+import {selectLoginStatus} from '../../store/selectors/user-selectors';
+import {selectAlikeMovies} from '../../store/selectors/genre-selectors';
 
 import Logo from '../logo/logo';
-import MoviesList from '../movies-list/movies-list';
+import MoviesList, {MoviesList as OriginalMoviesList} from '../movies-list/movies-list';
 import UserBlock from '../user-block/user-block';
 import MovieDescription from '../movie-description/movie-description';
 import MovieBackground from '../movie-background/movie-background';
 import MovieInfo from './movie-info';
 import SpinnerLoading from '../spinner-loading/spinner-loading';
 import Maintenance from '../maintenance/maintenance';
+import Container from '../container/container';
+import Footer from '../footer/footer';
+
+import operationStatusType from '../../typings/operation-status-type';
+import movieType from '../../typings/movie-type';
 
 const FullMovieCard = ({loginStatus, moviesStatus, movie = {}, alikeMovies = []}) => {
 
   if (moviesStatus === OperationStatus.PENDING) {
-    return <SpinnerLoading/>;
+    return (
+      <Container isCentered>
+        <SpinnerLoading/>
+      </Container>
+    );
   }
 
   if (moviesStatus === OperationStatus.REJECTED) {
-    return <Maintenance/>;
+    return (
+      <Container isCentered>
+        <Maintenance/>
+      </Container>
+    );
   }
 
   if (!movie.id) {
@@ -73,31 +89,22 @@ const FullMovieCard = ({loginStatus, moviesStatus, movie = {}, alikeMovies = []}
         </section>
       )}
 
-      <footer className="page-footer">
-        <Logo isLight/>
-
-        <div className="copyright">
-          <p>© 2019 What to watch Ltd.</p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   </>;
 };
 
 FullMovieCard.propTypes = {
-  loginStatus: PropTypes.oneOf(OPERATION_STATUSES),
-  moviesStatus: PropTypes.oneOf(OPERATION_STATUSES),
-  movie: PropTypes.shape({
-    id: PropTypes.string,
-    primaryBackgroundStyle: PropTypes.object,
-  }),
-  alikeMovies: MoviesList.propTypes.movies,
+  loginStatus: operationStatusType,
+  moviesStatus: operationStatusType,
+  movie: PropTypes.shape(movieType),
+  alikeMovies: OriginalMoviesList.propTypes.movies,
 };
 
 const mapStateToProps = (state, {movieId}) => {
   return {
-    loginStatus: state.loginStatus,
-    moviesStatus: state.moviesStatus,
+    loginStatus: selectLoginStatus(state),
+    moviesStatus: selectMoviesStatus(state),
     movie: selectMovieById(state, movieId),
     alikeMovies: selectAlikeMovies(state, movieId),
   };

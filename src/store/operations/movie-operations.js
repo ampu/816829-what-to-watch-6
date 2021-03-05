@@ -1,5 +1,5 @@
-import {OperationStatus} from '../../constants/operation-status';
-import {setMovies, setMoviesStatus, setPromoMovie, setPromoStatus} from '../actions/movies-actions';
+import OperationStatus from '../../constants/operation-status';
+import {setMovies, setMoviesStatus, setPromoMovie, setPromoStatus} from '../actions/movie-actions';
 import provider from '../../providers/provider';
 
 const getMovies = () => (dispatch) => {

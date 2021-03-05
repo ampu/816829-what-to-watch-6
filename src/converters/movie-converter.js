@@ -1,7 +1,7 @@
-import {SECONDS_IN_MINUTE} from '../utils/date-util';
+import {convertMinutesToSeconds} from '../utils/date-util';
 
 const importApiMovie = ({
-  id = 0,
+  id = ``,
   name = ``,
   poster_image: poster,
   preview_image: preview,
@@ -31,7 +31,7 @@ const importApiMovie = ({
     scoresCount,
     director,
     stars,
-    durationSeconds: durationMinutes * SECONDS_IN_MINUTE,
+    durationSeconds: convertMinutesToSeconds(durationMinutes),
     genre,
     year,
     isFavorite,

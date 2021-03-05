@@ -53,6 +53,14 @@ export default class ApiProvider {
     this._client = createApiClient(onUnauthorized);
   }
 
+  getCancellation() {
+    return axios.CancelToken.source();
+  }
+
+  isCancelled(error) {
+    return axios.isCancel(error);
+  }
+
   /** @return {Promise<Array<{id:String}>>} */
   async getMovies() {
     return this._client.get(ApiPath.MOVIES)
@@ -77,48 +85,54 @@ export default class ApiProvider {
       .then(importApiMovieFromResponse);
   }
 
-  /** @return {Promise<Array<{id:String}>>} */
-  async getMyList() {
-    return this._client.get(ApiPath.MY_LIST)
+  /**
+   * @param {{token: any}} cancellation
+   * @return {Promise<Array<{id:String}>>}
+   */
+  async getMyList(cancellation) {
+    return this._client.get(ApiPath.MY_LIST, {cancelToken: cancellation.token})
       .then(importApiMoviesFromResponse);
   }
 
   /**
    * @param {String} movieId
    * @param {Boolean} force
+   * @param {{token: any}} cancellation
    * @return {Promise<{id:String}>}
    */
-  async toggleFavoriteMovie(movieId, force) {
+  async toggleFavoriteMovie(movieId, force, cancellation) {
     const url = generatePath(ApiPath.FAVORITE, {
       movieId,
       status: +force,
     });
-    return this._client.post(url)
+    return this._client.post(url, null, {cancelToken: cancellation.token})
       .then(importApiMovieFromResponse);
   }
 
   /**
    * @param {String} movieId
+   * @param {{token: any}} cancellation
    * @return {Promise<{id:String}>}
    */
-  async getReviews(movieId) {
+  async getReviews(movieId, cancellation) {
     const url = generatePath(ApiPath.REVIEWS, {
       movieId,
     });
-    return this._client.get(url)
+    return this._client.get(url, {cancelToken: cancellation.token})
       .then(importApiReviewsFromResponse);
   }
 
   /**
    * @param {String} movieId
    * @param {{rating: Number, text: String}} localReview
+   * @param {{token: any}} cancellation
    * @return {Promise<{id:String}>}
    */
-  async postReview(movieId, localReview) {
+  async postReview(movieId, localReview, cancellation) {
     const url = generatePath(ApiPath.REVIEWS, {
       movieId,
     });
-    return this._client.post(url, exportApiReview(localReview))
+    return this._client.post(url, exportApiReview(localReview), {cancelToken: cancellation.token})
       .then(importApiReviewFromResponse);
   }
 

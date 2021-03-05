@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import getClassName from 'classnames';
 
 import {DEFAULT_BACKGROUND_STYLE} from '../../constants/styles';
+import {selectPromoMovie} from '../../store/selectors/movie-selectors';
 
 import Logo from '../logo/logo';
 import UserBlock from '../user-block/user-block';
@@ -64,7 +65,7 @@ PromoMovieCard.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  movie: state.promoMovie,
+  movie: selectPromoMovie(state),
 });
 
 export {PromoMovieCard};

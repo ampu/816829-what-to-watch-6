@@ -69,6 +69,15 @@ const getMoviesByGenre = (movies, genre) => {
     : movies.filter((movie) => movie.genre === genre);
 };
 
+/**
+ * @param {Array<{id:String}>} movies
+ * @param {String} movieId
+ * @return {?{id:String}}
+ */
+const getMovieById = (movies, movieId) => {
+  return movies.find((movie) => movie.id === movieId);
+};
+
 export {
   formatRating,
   getRatingLevel,
@@ -76,4 +85,5 @@ export {
   getGenresFromMovies,
   getAlikeMovies,
   getMoviesByGenre,
+  getMovieById,
 };

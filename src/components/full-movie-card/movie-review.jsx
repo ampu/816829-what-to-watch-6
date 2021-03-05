@@ -5,9 +5,11 @@ import {BORDER_BOTTOM_STYLE} from '../../constants/styles';
 import {formatRating} from '../../utils/movie-util';
 import {formatDate} from '../../utils/date-util';
 
+import reviewType from '../../typings/review-type';
+
 const MovieReview = ({review = {}}) => {
   const {
-    userName = ``,
+    user = {},
     text = ``,
     date = ``,
     rating = 0,
@@ -19,7 +21,7 @@ const MovieReview = ({review = {}}) => {
         {text && <p className="review__text">{text}</p>}
 
         <footer className="review__details">
-          {userName && <cite className="review__author">{userName}</cite>}
+          {user.name && <cite className="review__author">{user.name}</cite>}
           {date && (
             <time className="review__date" dateTime={formatDate(date, `YYYY-MM-DD`)}>
               {formatDate(date, `MMMM DD, YYYY`)}
@@ -34,12 +36,7 @@ const MovieReview = ({review = {}}) => {
 };
 
 MovieReview.propTypes = {
-  review: PropTypes.shape({
-    userName: PropTypes.string,
-    text: PropTypes.string,
-    date: PropTypes.string,
-    rating: PropTypes.number,
-  }),
+  review: PropTypes.shape(reviewType),
 };
 
 export default MovieReview;

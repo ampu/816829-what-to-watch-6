@@ -1,5 +1,5 @@
 const importApiUser = ({
-  id = 0,
+  id = ``,
   email = ``,
   name = ``,
   avatar_url: avatar = ``,

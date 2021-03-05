@@ -1,17 +1,15 @@
+import {importApiUser} from './user-converter';
+
 const importApiReview = ({
-  id = 0,
-  user: {
-    id: userId = ``,
-    name: userName = ``,
-  } = {},
+  id = ``,
+  user = {},
   rating = 0,
   comment: text = ``,
   date = ``,
 }) => {
   return {
     id: id.toString(),
-    userId,
-    userName,
+    user: importApiUser(user),
     rating,
     text,
     date,

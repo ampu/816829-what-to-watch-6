@@ -1,10 +1,11 @@
 import dayjs from 'dayjs';
 import durationPlugin from 'dayjs/plugin/duration';
+import clamp from 'lodash.clamp';
 
 const SECONDS_IN_MINUTE = 60;
 const MILLISECONDS_IN_SECOND = 1000;
 
-const PROGRESS_CONSTRAINT = {min: 0, max: 100};
+const MAX_PROGRESS = 100;
 
 /**
  * @param {any} date
@@ -39,23 +40,17 @@ const formatDuration = (totalSeconds, formatTemplate, invalidDurationSubstitute 
 };
 
 const getProgress = (totalSeconds, currentSeconds) => {
-  return clamp(currentSeconds / totalSeconds * PROGRESS_CONSTRAINT.max || 0, PROGRESS_CONSTRAINT);
+  return clamp(currentSeconds / totalSeconds * MAX_PROGRESS, MAX_PROGRESS) || 0;
 };
 
-const clamp = (value, {min, max} = {}) => {
-  if (max !== undefined && value > max) {
-    return max;
-  }
-  if (min !== undefined && value < min) {
-    return min;
-  }
-  return value;
+const convertMinutesToSeconds = (minutes) => {
+  return minutes * SECONDS_IN_MINUTE;
 };
 
 dayjs.extend(durationPlugin);
 
 export {
-  SECONDS_IN_MINUTE,
+  convertMinutesToSeconds,
   formatDate,
   formatDuration,
   getProgress,

@@ -4,7 +4,9 @@ import {connect} from 'react-redux';
 
 import GenresListItem from './genres-list-item';
 import {setGenre} from '../../store/actions/genre-actions';
-import {selectGenres} from '../../store/selectors';
+import {selectGenre, selectGenres} from '../../store/selectors/genre-selectors';
+
+import movieType from '../../typings/movie-type';
 
 const GenresList = ({genres = [], activeGenre = ``, onGenreChange}) => {
   return (
@@ -20,14 +22,14 @@ const GenresList = ({genres = [], activeGenre = ``, onGenreChange}) => {
 };
 
 GenresList.propTypes = {
-  genres: PropTypes.arrayOf(PropTypes.string),
-  activeGenre: PropTypes.string,
+  genres: PropTypes.arrayOf(movieType.genre),
+  activeGenre: movieType.genre,
   onGenreChange: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   genres: selectGenres(state),
-  activeGenre: state.genre,
+  activeGenre: selectGenre(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

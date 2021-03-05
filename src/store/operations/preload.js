@@ -1,4 +1,4 @@
-import {getMovies} from './movies-operations';
+import {getMovies} from './movie-operations';
 import {getLogin} from './user-operations';
 
 const preload = () => (dispatch) => {

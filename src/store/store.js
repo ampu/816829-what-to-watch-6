@@ -1,9 +1,21 @@
-import {applyMiddleware, createStore} from 'redux';
+import {applyMiddleware, combineReducers, createStore} from 'redux';
 import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 
-import {reducer} from './reducer';
+import Domain from './domain';
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+import movieReducer from './reducers/movie-reducer';
+import userReducer from './reducers/user-reducer';
+import genreReducer from './reducers/genre-reducer';
+
+const rootReducer = combineReducers({
+  [Domain.MOVIE]: movieReducer,
+  [Domain.USER]: userReducer,
+  [Domain.GENRE]: genreReducer,
+});
+
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+
+window.store = store;
 
 export default store;

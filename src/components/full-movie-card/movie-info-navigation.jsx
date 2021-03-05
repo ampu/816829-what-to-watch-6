@@ -6,6 +6,8 @@ import {MoviePath} from '../../constants/paths';
 
 import MovieInfoNavigationItem from './movie-info-navigation-item';
 
+import movieType from '../../typings/movie-type';
+
 const MovieInfoNavigation = ({movie}) => {
   return (
     <nav className="movie-nav movie-card__nav">
@@ -20,7 +22,7 @@ const MovieInfoNavigation = ({movie}) => {
 
 MovieInfoNavigation.propTypes = {
   movie: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: movieType.id,
   }).isRequired,
 };
 

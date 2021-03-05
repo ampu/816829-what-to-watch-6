@@ -1,0 +1,4 @@
+.my-list-button:disabled {
+  cursor: default;
+  filter: grayscale(100%);
+}
