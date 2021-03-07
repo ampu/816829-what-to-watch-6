@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 
 const PauseButton = (props = {}) => {
   return (
@@ -11,4 +11,5 @@ const PauseButton = (props = {}) => {
   );
 };
 
-export default PauseButton;
+export {PauseButton};
+export default memo(PauseButton);

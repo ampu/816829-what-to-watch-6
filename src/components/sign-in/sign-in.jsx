@@ -4,10 +4,15 @@ import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import getClassName from 'classnames';
 
+import {selectLoginStatus} from '../../store/selectors/user-selectors';
+
 import Logo from '../logo/logo';
-import {OperationStatus, OPERATION_STATUSES} from '../../constants/operation-status';
+import OperationStatus from '../../constants/operation-status';
 import {MainPath} from '../../constants/paths';
 import {postLogin} from '../../store/operations/user-operations';
+import Footer from '../footer/footer';
+
+import operationStatusType from '../../typings/operation-status-type';
 
 import './sign-in.css';
 
@@ -49,16 +54,16 @@ const SignIn = ({onSubmit, loginStatus} = {}) => {
       });
   }, [onSubmit, email, password, setError]);
 
+  if (loginStatus === OperationStatus.RESOLVED) {
+    return <Redirect to={MainPath.INDEX}/>;
+  }
+
   const isDisabled = loginStatus === OperationStatus.PENDING;
 
   const formClassMap = {
     [`sign-in__form`]: true,
     [`sign-in__form--disabled`]: isDisabled,
   };
-
-  if (loginStatus === OperationStatus.RESOLVED) {
-    return <Redirect to={MainPath.INDEX}/>;
-  }
 
   return (
     <div className="user-page">
@@ -97,28 +102,18 @@ const SignIn = ({onSubmit, loginStatus} = {}) => {
         </form>
       </div>
 
-      <footer className="page-footer">
-        <Logo isLight/>
-
-        <div className="copyright">
-          <p>© 2019 What to watch Ltd.</p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 };
 
 SignIn.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  loginStatus: PropTypes.oneOf(OPERATION_STATUSES),
-  error: PropTypes.shape({
-    message: PropTypes.string,
-    field: PropTypes.oneOf(Object.values(Field)),
-  }),
+  loginStatus: operationStatusType,
 };
 
 const mapStateToProps = (state) => ({
-  loginStatus: state.loginStatus,
+  loginStatus: selectLoginStatus(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

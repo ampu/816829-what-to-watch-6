@@ -3,15 +3,24 @@ import PropTypes from 'prop-types';
 import {Route, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {MainPath} from '../../constants/paths';
-import {OperationStatus, OPERATION_STATUSES} from '../../constants/operation-status';
-import SpinnerLoading from '../spinner-loading/spinner-loading';
+import {selectLoginStatus} from '../../store/selectors/user-selectors';
 
-const PrivateRoute = ({exact = true, path, render, loginStatus}) => {
+import {MainPath} from '../../constants/paths';
+import OperationStatus from '../../constants/operation-status';
+import SpinnerLoading from '../spinner-loading/spinner-loading';
+import Container from '../container/container';
+
+import operationStatusType from '../../typings/operation-status-type';
+
+const PrivateRoute = ({loginStatus, exact = true, path, render}) => {
 
   const doRender = useCallback((routeProps) => {
     if (loginStatus === OperationStatus.PENDING) {
-      return <SpinnerLoading/>;
+      return (
+        <Container isCentered>
+          <SpinnerLoading/>
+        </Container>
+      );
     }
     return loginStatus === OperationStatus.RESOLVED
       ? render(routeProps)
@@ -22,14 +31,14 @@ const PrivateRoute = ({exact = true, path, render, loginStatus}) => {
 };
 
 PrivateRoute.propTypes = {
+  loginStatus: operationStatusType,
   exact: PropTypes.bool,
   path: PropTypes.string.isRequired,
   render: PropTypes.func.isRequired,
-  loginStatus: PropTypes.oneOf(OPERATION_STATUSES),
 };
 
 const mapStateToProps = (state) => ({
-  loginStatus: state.loginStatus,
+  loginStatus: selectLoginStatus(state),
 });
 
 export {PrivateRoute};

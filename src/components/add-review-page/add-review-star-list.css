@@ -1,0 +1,7 @@
+.rating__input:disabled + .rating__label {
+  cursor: default;
+}
+
+.rating__input:disabled + .rating__label::after {
+  opacity: 0.5;
+}

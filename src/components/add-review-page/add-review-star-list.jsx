@@ -1,22 +1,27 @@
 import React, {memo} from 'react';
 import PropTypes from 'prop-types';
+import range from 'lodash.range';
 
-const AddReviewStarList = ({maxRating}) => {
-  return Array.from({length: maxRating}, (_, i) => {
-    const value = i + 1;
-    const id = `star-${value}`;
+import './add-review-star-list.css';
 
-    return (
-      <React.Fragment key={id}>
-        <input className="rating__input" id={id} type="radio" name="rating" value={value}/>
-        <label className="rating__label" htmlFor={id}>Rating {value}</label>
-      </React.Fragment>
-    );
-  });
+const RANGE_OFFSET = 1;
+
+const AddReviewStarList = ({maxRating, isDisabled = false}) => {
+  return range(RANGE_OFFSET, RANGE_OFFSET + maxRating)
+    .map((value) => {
+      const id = `star-${value}`;
+      return (
+        <React.Fragment key={id}>
+          <input className="rating__input" id={id} type="radio" name="rating" value={value} disabled={isDisabled}/>
+          <label className="rating__label" htmlFor={id}>Rating {value}</label>
+        </React.Fragment>
+      );
+    });
 };
 
 AddReviewStarList.propTypes = {
   maxRating: PropTypes.number.isRequired,
+  isDisabled: PropTypes.bool,
 };
 
 export {AddReviewStarList};

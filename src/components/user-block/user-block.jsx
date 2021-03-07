@@ -4,7 +4,11 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {MainPath} from '../../constants/paths';
-import {OperationStatus, OPERATION_STATUSES} from '../../constants/operation-status';
+import OperationStatus from '../../constants/operation-status';
+import {selectLoginStatus, selectUser} from '../../store/selectors/user-selectors';
+
+import operationStatusType from '../../typings/operation-status-type';
+import userType from '../../typings/user-type';
 
 const UserBlock = ({loginStatus, user}) => {
   return (
@@ -17,7 +21,7 @@ const UserBlock = ({loginStatus, user}) => {
         </div>
       )}
 
-      {[OperationStatus.UNSET, OperationStatus.REJECTED].includes(loginStatus) && (
+      {loginStatus === OperationStatus.REJECTED && (
         <Link to={MainPath.SIGN_IN} className="user-block__link">Sign in</Link>
       )}
     </div>
@@ -25,16 +29,15 @@ const UserBlock = ({loginStatus, user}) => {
 };
 
 UserBlock.propTypes = {
-  loginStatus: PropTypes.oneOf(OPERATION_STATUSES),
+  loginStatus: operationStatusType,
   user: PropTypes.shape({
-    avatar: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
+    avatar: userType.avatar.isRequired,
   }),
 };
 
 const mapStateToProps = (state) => ({
-  loginStatus: state.loginStatus,
-  user: state.user,
+  loginStatus: selectLoginStatus(state),
+  user: selectUser(state),
 });
 
 export {UserBlock};

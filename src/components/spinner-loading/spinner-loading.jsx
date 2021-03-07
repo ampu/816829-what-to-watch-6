@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
 
-import {withContainer} from '../../hocs/container/container';
-
 import './spinner-loading.css';
 
 const SpinnerLoading = ({isInverse = false}) => {
@@ -35,5 +33,4 @@ SpinnerLoading.propTypes = {
   isInverse: PropTypes.bool,
 };
 
-export {SpinnerLoading};
-export default withContainer(SpinnerLoading);
+export default SpinnerLoading;

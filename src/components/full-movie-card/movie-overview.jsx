@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import {getRatingLevel, formatScoresCount, formatRating} from '../../utils/movie-util';
 
+import movieType from '../../typings/movie-type';
+
 const MovieOverview = ({movie = {}} = {}) => {
   const {
     description = ``,
@@ -35,11 +37,11 @@ const MovieOverview = ({movie = {}} = {}) => {
 
 MovieOverview.propTypes = {
   movie: PropTypes.shape({
-    description: PropTypes.string,
-    director: PropTypes.string,
-    stars: PropTypes.array,
-    rating: PropTypes.number,
-    scoresCount: PropTypes.number,
+    description: movieType.description,
+    director: movieType.director,
+    stars: movieType.stars,
+    rating: movieType.rating,
+    scoresCount: movieType.scoresCount,
   }),
 };
 

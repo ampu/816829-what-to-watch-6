@@ -1,5 +1,5 @@
-import {OperationStatus} from '../../constants/operation-status';
-import {setLoginStatus, setMyList, setMyListStatus, setUser} from '../actions/user-actions';
+import OperationStatus from '../../constants/operation-status';
+import {setLoginStatus, setUser} from '../actions/user-actions';
 import provider from '../../providers/provider';
 
 const getLogin = () => (dispatch) => {
@@ -29,21 +29,7 @@ const postLogin = ({email, password}) => (dispatch) => {
     });
 };
 
-const getMyList = () => (dispatch) => {
-  dispatch(setMyListStatus(OperationStatus.PENDING));
-
-  return provider.getMyList()
-    .then((myMovies) => {
-      dispatch(setMyList(myMovies));
-      dispatch(setMyListStatus(OperationStatus.RESOLVED));
-    })
-    .catch((_error) => {
-      dispatch(setMyListStatus(OperationStatus.REJECTED));
-    });
-};
-
 export {
   getLogin,
   postLogin,
-  getMyList,
 };

@@ -5,6 +5,8 @@ import getClassName from 'classnames';
 
 import {MainPath} from '../../constants/paths';
 
+import movieType from '../../typings/movie-type';
+
 const GenresListItem = ({genre, onGenreChange, isActive = false}) => {
 
   const classMap = {
@@ -26,7 +28,7 @@ const GenresListItem = ({genre, onGenreChange, isActive = false}) => {
 
 GenresListItem.propTypes = {
   onGenreChange: PropTypes.func.isRequired,
-  genre: PropTypes.string.isRequired,
+  genre: movieType.genre.isRequired,
   isActive: PropTypes.bool,
 };
 

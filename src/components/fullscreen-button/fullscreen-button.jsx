@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 
 const FullscreenButton = (props = {}) => {
   return (
@@ -11,4 +11,5 @@ const FullscreenButton = (props = {}) => {
   );
 };
 
-export default FullscreenButton;
+export {FullscreenButton};
+export default memo(FullscreenButton);

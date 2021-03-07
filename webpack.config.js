@@ -1,7 +1,6 @@
 const path = require(`path`);
 const autoprefixer = require(`autoprefixer`);
 
-
 const styleRule = {
   test: /\.css$/i,
   use: [
@@ -33,7 +32,6 @@ const scriptRule = {
     loader: `babel-loader`,
   },
 };
-
 
 module.exports = {
   entry: `./src/index.js`,

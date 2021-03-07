@@ -5,9 +5,4 @@ const OperationStatus = {
   REJECTED: `rejected`,
 };
 
-const OPERATION_STATUSES = Object.values(OperationStatus);
-
-export {
-  OperationStatus,
-  OPERATION_STATUSES,
-};
+export default OperationStatus;

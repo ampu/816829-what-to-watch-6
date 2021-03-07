@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import {formatDuration} from '../../utils/date-util';
 
+import movieType from '../../typings/movie-type';
+
 import './movie-details.css';
 
 const MovieDetails = ({movie = {}} = {}) => {
@@ -61,11 +63,11 @@ const MovieDetails = ({movie = {}} = {}) => {
 
 MovieDetails.propTypes = {
   movie: PropTypes.shape({
-    director: PropTypes.string,
-    stars: PropTypes.arrayOf(PropTypes.string),
-    durationSeconds: PropTypes.number,
-    genre: PropTypes.string,
-    year: PropTypes.number,
+    director: movieType.director,
+    stars: movieType.stars,
+    durationSeconds: movieType.durationSeconds,
+    genre: movieType.genre,
+    year: movieType.year,
   }),
 };
 

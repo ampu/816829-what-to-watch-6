@@ -1,4 +1,4 @@
-import ActionType from '../../constants/action-type';
+import ActionType from '../action-type';
 
 const setMoviesStatus = (moviesStatus) => ({type: ActionType.SET_MOVIES_STATUS, payload: moviesStatus});
 const doSetMoviesStatus = (state, moviesStatus) => ({...state, moviesStatus});

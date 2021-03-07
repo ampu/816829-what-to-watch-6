@@ -1,11 +1,20 @@
 import React from 'react';
-import {connect} from 'react-redux';
+
+import OperationStatus from '../../constants/operation-status';
+import {useMyList} from '../../hooks/use-my-list';
 
 import Logo from '../logo/logo';
 import MoviesList from '../movies-list/movies-list';
 import UserBlock from '../user-block/user-block';
+import Footer from '../footer/footer';
+import Container from '../container/container';
+import SpinnerLoading from '../spinner-loading/spinner-loading';
+import Maintenance from '../maintenance/maintenance';
 
-const MyList = ({movies = []}) => {
+const MyList = () => {
+
+  const [moviesStatus, movies] = useMyList();
+
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -19,27 +28,32 @@ const MyList = ({movies = []}) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <MoviesList movies={movies}/>
+        {moviesStatus === OperationStatus.PENDING && (
+          <Container isCentered>
+            <SpinnerLoading/>
+          </Container>
+        )}
+
+        {moviesStatus === OperationStatus.REJECTED && (
+          <Container isCentered>
+            <Maintenance>
+              Your list is temporary unavailable...
+            </Maintenance>
+          </Container>
+        )}
+
+        {moviesStatus === OperationStatus.RESOLVED && movies.length === 0 && (
+          <Container isCentered>
+            <div>There are no movies in your list...</div>
+          </Container>
+        )}
+
+        {moviesStatus === OperationStatus.RESOLVED && movies.length > 0 && <MoviesList movies={movies}/>}
       </section>
 
-      <footer className="page-footer">
-        <Logo isLight/>
-
-        <div className="copyright">
-          <p>© 2019 What to watch Ltd.</p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 };
 
-MyList.propTypes = {
-  movies: MoviesList.propTypes.movies,
-};
-
-const mapStateToProps = (state) => ({
-  movies: state.myMovies,
-});
-
-export {MyList};
-export default connect(mapStateToProps)(MyList);
+export default MyList;

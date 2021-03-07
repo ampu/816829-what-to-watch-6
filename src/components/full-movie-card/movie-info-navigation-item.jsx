@@ -5,7 +5,7 @@ import getClassName from 'classnames';
 
 import {useMatchPath} from '../../hooks/use-match-path';
 
-const MovieInfoNavigationItem = ({title = ``, path = ``}) => {
+const MovieInfoNavigationItem = ({title, path}) => {
 
   const classMap = {
     [`movie-nav__item`]: true,
@@ -20,8 +20,8 @@ const MovieInfoNavigationItem = ({title = ``, path = ``}) => {
 };
 
 MovieInfoNavigationItem.propTypes = {
-  title: PropTypes.string,
-  path: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
 };
 
 export default MovieInfoNavigationItem;

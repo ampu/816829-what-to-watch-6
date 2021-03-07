@@ -5,8 +5,8 @@ import {connect} from 'react-redux';
 
 import {MainPath} from '../../constants/paths';
 import PosterSize from '../../constants/poster-size';
-import {OperationStatus, OPERATION_STATUSES} from '../../constants/operation-status';
-import {selectMovieById} from '../../store/selectors';
+import OperationStatus from '../../constants/operation-status';
+import {selectMovieById, selectMoviesStatus} from '../../store/selectors/movie-selectors';
 
 import Logo from '../logo/logo';
 import UserBlock from '../user-block/user-block';
@@ -15,15 +15,27 @@ import MovieBackground from '../movie-background/movie-background';
 import AddReviewForm from './add-review-form';
 import SpinnerLoading from '../spinner-loading/spinner-loading';
 import Maintenance from '../maintenance/maintenance';
+import Container from '../container/container';
+
+import operationStatusType from '../../typings/operation-status-type';
+import movieType from '../../typings/movie-type';
 
 const AddReviewPage = ({moviesStatus, movie} = {}) => {
 
   if (moviesStatus === OperationStatus.PENDING) {
-    return <SpinnerLoading/>;
+    return (
+      <Container isCentered>
+        <SpinnerLoading/>
+      </Container>
+    );
   }
 
   if (moviesStatus === OperationStatus.REJECTED) {
-    return <Maintenance/>;
+    return (
+      <Container isCentered>
+        <Maintenance/>
+      </Container>
+    );
   }
 
   if (!movie.id) {
@@ -70,17 +82,13 @@ const AddReviewPage = ({moviesStatus, movie} = {}) => {
 };
 
 AddReviewPage.propTypes = {
-  moviesStatus: PropTypes.oneOf(OPERATION_STATUSES),
-  movie: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string,
-    primaryBackgroundStyle: PropTypes.object,
-  }),
+  moviesStatus: operationStatusType,
+  movie: PropTypes.shape(movieType),
 };
 
 const mapStateToProps = (state, {movieId}) => {
   return {
-    moviesStatus: state.moviesStatus,
+    moviesStatus: selectMoviesStatus(state),
     movie: selectMovieById(state, movieId),
   };
 };
