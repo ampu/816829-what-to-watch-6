@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default {
+const movieType = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string,
   poster: PropTypes.string,
@@ -22,3 +22,7 @@ export default {
     backgroundColor: PropTypes.string,
   }),
 };
+
+const movieShape = PropTypes.shape(movieType);
+
+export {movieType, movieShape};

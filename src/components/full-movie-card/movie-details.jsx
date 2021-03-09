@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {formatDuration} from '../../utils/date-util';
 
-import movieType from '../../typings/movie-type';
+import {movieType} from '../../typings/movie-type';
 
 import './movie-details.css';
 
@@ -13,7 +13,7 @@ const MovieDetails = ({movie = {}} = {}) => {
     stars = [],
     durationSeconds = 0,
     genre = ``,
-    year = ``,
+    year = 0,
   } = movie;
 
   return (
@@ -36,7 +36,7 @@ const MovieDetails = ({movie = {}} = {}) => {
       </div>
 
       <div className="movie-card__text-col">
-        {durationSeconds && (
+        {durationSeconds > 0 && (
           <p className="movie-card__details-item">
             <strong className="movie-card__details-name">Run Time</strong>
             <span className="movie-card__details-value">
@@ -50,7 +50,7 @@ const MovieDetails = ({movie = {}} = {}) => {
             <span className="movie-card__details-value">{genre}</span>
           </p>
         )}
-        {year && (
+        {year > 0 && (
           <p className="movie-card__details-item">
             <strong className="movie-card__details-name">Released</strong>
             <span className="movie-card__details-value">{year}</span>

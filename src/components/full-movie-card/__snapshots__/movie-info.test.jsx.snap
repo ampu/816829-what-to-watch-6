@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieInfo component Should render according to the snapshot while at '/' url 1`] = `
+<div>
+  <div
+    class="movie-card__info"
+  >
+    <div
+      class="movie-card__poster"
+    >
+      <img
+        alt=" poster"
+        height="327"
+        src="fakePoster"
+        width="218"
+      />
+    </div>
+    <div
+      class="movie-card__desc"
+    >
+      <nav
+        class="movie-nav movie-card__nav"
+      >
+        <ul
+          class="movie-nav__list"
+        >
+          <li
+            class="movie-nav__item"
+          >
+            <a
+              class="movie-nav__link"
+              href="/films/fakeId"
+            >
+              Overview
+            </a>
+          </li>
+          <li
+            class="movie-nav__item"
+          >
+            <a
+              class="movie-nav__link"
+              href="/films/fakeId/details"
+            >
+              Details
+            </a>
+          </li>
+          <li
+            class="movie-nav__item"
+          >
+            <a
+              class="movie-nav__link"
+              href="/films/fakeId/reviews"
+            >
+              Reviews
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MovieInfo component Should render according to the snapshot while at '/films/:id' url 1`] = `
+<div>
+  <div
+    class="movie-card__info"
+  >
+    <div
+      class="movie-card__poster"
+    >
+      <img
+        alt=" poster"
+        height="327"
+        src="fakePoster"
+        width="218"
+      />
+    </div>
+    <div
+      class="movie-card__desc"
+    >
+      <nav
+        class="movie-nav movie-card__nav"
+      >
+        <ul
+          class="movie-nav__list"
+        >
+          <li
+            class="movie-nav__item movie-nav__item--active"
+          >
+            <a
+              class="movie-nav__link"
+              href="/films/fakeId"
+            >
+              Overview
+            </a>
+          </li>
+          <li
+            class="movie-nav__item"
+          >
+            <a
+              class="movie-nav__link"
+              href="/films/fakeId/details"
+            >
+              Details
+            </a>
+          </li>
+          <li
+            class="movie-nav__item"
+          >
+            <a
+              class="movie-nav__link"
+              href="/films/fakeId/reviews"
+            >
+              Reviews
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        class="movie-card__text"
+      >
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MovieInfo component Should render according to the snapshot while at '/films/:id/details' url 1`] = `
+<div>
+  <div
+    class="movie-card__info"
+  >
+    <div
+      class="movie-card__poster"
+    >
+      <img
+        alt=" poster"
+        height="327"
+        src="fakePoster"
+        width="218"
+      />
+    </div>
+    <div
+      class="movie-card__desc"
+    >
+      <nav
+        class="movie-nav movie-card__nav"
+      >
+        <ul
+          class="movie-nav__list"
+        >
+          <li
+            class="movie-nav__item"
+          >
+            <a
+              class="movie-nav__link"
+              href="/films/fakeId"
+            >
+              Overview
+            </a>
+          </li>
+          <li
+            class="movie-nav__item movie-nav__item--active"
+          >
+            <a
+              class="movie-nav__link"
+              href="/films/fakeId/details"
+            >
+              Details
+            </a>
+          </li>
+          <li
+            class="movie-nav__item"
+          >
+            <a
+              class="movie-nav__link"
+              href="/films/fakeId/reviews"
+            >
+              Reviews
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        class="movie-card__text movie-card__row"
+      >
+        <div
+          class="movie-card__text-col"
+        >
+          
+        </div>
+        <div
+          class="movie-card__text-col"
+        >
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

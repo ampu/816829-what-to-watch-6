@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component Should render according to the snapshot 1`] = `
+<div>
+  <footer
+    class="page-footer"
+  >
+    <div
+      class="logo"
+    >
+      <a
+        aria-current="page"
+        class="logo__link logo__link--light logo__link--active"
+        href="/"
+      >
+        <span
+          class="logo__letter logo__letter--1"
+        >
+          W
+        </span>
+        <span
+          class="logo__letter logo__letter--2"
+        >
+          T
+        </span>
+        <span
+          class="logo__letter logo__letter--3"
+        >
+          W
+        </span>
+      </a>
+    </div>
+    <div
+      class="copyright"
+    >
+      <p>
+        © 2019 What to watch Ltd.
+      </p>
+    </div>
+  </footer>
+</div>
+`;

@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviePoster component Should render according to the snapshot with movie poster and big poster size provided 1`] = `
+<div>
+  <div
+    class="movie-card__poster movie-card__poster--big"
+  >
+    <img
+      alt="fakeTitle poster"
+      height="327"
+      src="fakePoster"
+      width="218"
+    />
+  </div>
+</div>
+`;
+
+exports[`MoviePoster component Should render according to the snapshot with movie poster and small poster size provided 1`] = `
+<div>
+  <div
+    class="movie-card__poster movie-card__poster--small"
+  >
+    <img
+      alt="fakeTitle poster"
+      height="327"
+      src="fakePoster"
+      width="218"
+    />
+  </div>
+</div>
+`;
+
+exports[`MoviePoster component Should render according to the snapshot with movie poster provided 1`] = `
+<div>
+  <div
+    class="movie-card__poster"
+  >
+    <img
+      alt="fakeTitle poster"
+      height="327"
+      src="fakePoster"
+      width="218"
+    />
+  </div>
+</div>
+`;
+
+exports[`MoviePoster component Should render according to the snapshot with no movie poster provided 1`] = `
+<div>
+  
+</div>
+`;

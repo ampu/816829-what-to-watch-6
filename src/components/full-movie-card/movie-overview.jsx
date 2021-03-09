@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import {getRatingLevel, formatScoresCount, formatRating} from '../../utils/movie-util';
 
-import movieType from '../../typings/movie-type';
+import {movieType} from '../../typings/movie-type';
 
 const MovieOverview = ({movie = {}} = {}) => {
   const {
     description = ``,
     director = ``,
-    stars = ``,
+    stars = [],
     rating = 0,
     scoresCount = 0,
   } = movie;
@@ -30,7 +30,7 @@ const MovieOverview = ({movie = {}} = {}) => {
 
       {director && <p className="movie-card__director"><strong>Director: {director}</strong></p>}
 
-      {stars && <p className="movie-card__starring"><strong>Starring: {stars.join(`, `)}</strong></p>}
+      {stars.length > 0 && <p className="movie-card__starring"><strong>Starring: {stars.join(`, `)}</strong></p>}
     </div>
   </>;
 };

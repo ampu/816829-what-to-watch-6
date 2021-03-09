@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieInfoTabs component Should render according to the snapshot while at '/' url 1`] = `<div />`;
+
+exports[`MovieInfoTabs component Should render according to the snapshot while at '/films/:id' url 1`] = `
+<div>
+  <div
+    class="movie-card__text"
+  >
+    
+    
+  </div>
+</div>
+`;
+
+exports[`MovieInfoTabs component Should render according to the snapshot while at '/films/:id/details' url 1`] = `
+<div>
+  <div
+    class="movie-card__text movie-card__row"
+  >
+    <div
+      class="movie-card__text-col"
+    >
+      
+    </div>
+    <div
+      class="movie-card__text-col"
+    >
+      
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BorderSpinner component Should render according to the snapshot 1`] = `
+<div>
+  <div
+    class="border-spinner"
+  />
+</div>
+`;

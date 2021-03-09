@@ -1,21 +1,14 @@
 import {ALL_GENRES, GENRES_CAPACITY} from '../constants/genre';
 
-const RATING_FORMAT = {
-  locale: `ru-RU`,
-  options: {minimumFractionDigits: 1, maximumFractionDigits: 1},
-};
-
-const SCORES_COUNT_FORMAT = {
-  locale: `ru-RU`,
-  options: {maximumFractionDigits: 0},
-};
+const ratingFormat = new Intl.NumberFormat(`ru`, {minimumFractionDigits: 1, maximumFractionDigits: 1});
+const scoresCountFormat = new Intl.NumberFormat(`ru`, {maximumFractionDigits: 0});
 
 /**
  * @param {Number} rating
  * @return {String}
  */
 const formatRating = (rating) => {
-  return rating.toLocaleString(RATING_FORMAT.locale, RATING_FORMAT.options);
+  return ratingFormat.format(rating);
 };
 
 /**
@@ -23,6 +16,7 @@ const formatRating = (rating) => {
  * @return {string}
  */
 const getRatingLevel = (_rating) => {
+  // todo: implement this, e.g. «Very Good», ...
   return ``;
 };
 
@@ -31,7 +25,7 @@ const getRatingLevel = (_rating) => {
  * @return {String}
  */
 const formatScoresCount = (scoresCount) => {
-  return scoresCount.toLocaleString(SCORES_COUNT_FORMAT.locale, SCORES_COUNT_FORMAT.options);
+  return scoresCountFormat.format(scoresCount);
 };
 
 /**
@@ -39,7 +33,7 @@ const formatScoresCount = (scoresCount) => {
  * @return {Array<String>}
  */
 const getGenresFromMovies = (movies) => {
-  const genres = Array.from(new Set(movies.map((movie) => movie.genre)));
+  const genres = Array.from(new Set(movies.map((movie) => movie.genre).filter(Boolean)));
 
   genres.sort((genre, anotherGenre) => genre.localeCompare(anotherGenre));
 

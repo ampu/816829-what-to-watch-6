@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {generatePath, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -9,7 +9,7 @@ import OperationStatus from '../../constants/operation-status';
 import PlayButton from '../play-button/play-button';
 import MyListButton from '../my-list-button/my-list-button';
 
-import movieType from '../../typings/movie-type';
+import {movieType} from '../../typings/movie-type';
 import {selectLoginStatus} from '../../store/selectors/user-selectors';
 
 import operationStatusType from '../../typings/operation-status-type';
@@ -23,12 +23,12 @@ const MovieDescription = ({loginStatus, movie = {}, children}) => {
 
   const history = useHistory();
 
-  const handlePlayClick = (evt) => {
+  const handlePlayClick = useCallback((evt) => {
     evt.preventDefault();
     history.push(generatePath(MainPath.PLAYER, movie));
-  };
+  }, [history, movie]);
 
-  return title && (
+  return (
     <div className="movie-card__desc">
       <h2 className="movie-card__title">{title}</h2>
       <p className="movie-card__meta">
@@ -52,10 +52,11 @@ const MovieDescription = ({loginStatus, movie = {}, children}) => {
 MovieDescription.propTypes = {
   loginStatus: operationStatusType,
   movie: PropTypes.shape({
+    id: movieType.id,
     title: movieType.title,
     genre: movieType.genre,
     year: movieType.year,
-  }),
+  }).isRequired,
   children: PropTypes.any,
 };
 

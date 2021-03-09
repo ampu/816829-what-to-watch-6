@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {generatePath, Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
@@ -18,9 +17,9 @@ import Maintenance from '../maintenance/maintenance';
 import Container from '../container/container';
 
 import operationStatusType from '../../typings/operation-status-type';
-import movieType from '../../typings/movie-type';
+import {movieShape} from '../../typings/movie-type';
 
-const AddReviewPage = ({moviesStatus, movie} = {}) => {
+const AddReviewPage = ({moviesStatus, movie = {}} = {}) => {
 
   if (moviesStatus === OperationStatus.PENDING) {
     return (
@@ -83,7 +82,7 @@ const AddReviewPage = ({moviesStatus, movie} = {}) => {
 
 AddReviewPage.propTypes = {
   moviesStatus: operationStatusType,
-  movie: PropTypes.shape(movieType),
+  movie: movieShape,
 };
 
 const mapStateToProps = (state, {movieId}) => {

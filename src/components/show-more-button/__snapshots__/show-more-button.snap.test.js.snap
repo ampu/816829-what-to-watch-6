@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShowMoreButton component Should render according to the snapshot 1`] = `
+<div>
+  <div
+    class="catalog__more"
+  >
+    <button
+      class="catalog__button"
+      type="button"
+    >
+      Show more
+    </button>
+  </div>
+</div>
+`;

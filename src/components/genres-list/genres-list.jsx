@@ -6,7 +6,7 @@ import GenresListItem from './genres-list-item';
 import {setGenre} from '../../store/actions/genre-actions';
 import {selectGenre, selectGenres} from '../../store/selectors/genre-selectors';
 
-import movieType from '../../typings/movie-type';
+import {movieType} from '../../typings/movie-type';
 
 const GenresList = ({genres = [], activeGenre = ``, onGenreChange}) => {
   return (
@@ -22,7 +22,7 @@ const GenresList = ({genres = [], activeGenre = ``, onGenreChange}) => {
 };
 
 GenresList.propTypes = {
-  genres: PropTypes.arrayOf(movieType.genre),
+  genres: PropTypes.arrayOf(movieType.genre.isRequired),
   activeGenre: movieType.genre,
   onGenreChange: PropTypes.func.isRequired,
 };
@@ -34,7 +34,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreChange(genre) {
-    dispatch(setGenre(genre));
+    return dispatch(setGenre(genre));
   },
 });
 

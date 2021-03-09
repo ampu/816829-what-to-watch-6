@@ -1,0 +1,296 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddReviewPage component Should render according to the snapshot with loaded movie 1`] = `
+<div>
+  <section
+    class="movie-card movie-card--full"
+  >
+    <div
+      class="movie-card__header"
+    >
+      
+      <h1
+        class="visually-hidden"
+      />
+      <header
+        class="page-header"
+      >
+        <div
+          class="logo"
+        >
+          <a
+            aria-current="page"
+            class="logo__link logo__link--active"
+            href="/"
+          >
+            <span
+              class="logo__letter logo__letter--1"
+            >
+              W
+            </span>
+            <span
+              class="logo__letter logo__letter--2"
+            >
+              T
+            </span>
+            <span
+              class="logo__letter logo__letter--3"
+            >
+              W
+            </span>
+          </a>
+        </div>
+        <nav
+          class="breadcrumbs"
+        >
+          <ul
+            class="breadcrumbs__list"
+          >
+            <li
+              class="breadcrumbs__item"
+            >
+              <a
+                class="breadcrumbs__link"
+                href="/films/fakeId"
+              />
+            </li>
+            <li
+              class="breadcrumbs__item"
+            >
+              <a
+                class="breadcrumbs__link"
+              >
+                Add review
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          class="user-block"
+        />
+      </header>
+      
+    </div>
+    <div
+      class="add-review"
+    >
+      <form
+        action="#"
+        class="add-review__form"
+      >
+        <div
+          class="rating"
+        >
+          <div
+            class="rating__stars"
+            value="10"
+          >
+            <input
+              class="rating__input"
+              id="star-1"
+              name="rating"
+              type="radio"
+              value="1"
+            />
+            <label
+              class="rating__label"
+              for="star-1"
+            >
+              Rating 
+              1
+            </label>
+            <input
+              class="rating__input"
+              id="star-2"
+              name="rating"
+              type="radio"
+              value="2"
+            />
+            <label
+              class="rating__label"
+              for="star-2"
+            >
+              Rating 
+              2
+            </label>
+            <input
+              class="rating__input"
+              id="star-3"
+              name="rating"
+              type="radio"
+              value="3"
+            />
+            <label
+              class="rating__label"
+              for="star-3"
+            >
+              Rating 
+              3
+            </label>
+            <input
+              class="rating__input"
+              id="star-4"
+              name="rating"
+              type="radio"
+              value="4"
+            />
+            <label
+              class="rating__label"
+              for="star-4"
+            >
+              Rating 
+              4
+            </label>
+            <input
+              class="rating__input"
+              id="star-5"
+              name="rating"
+              type="radio"
+              value="5"
+            />
+            <label
+              class="rating__label"
+              for="star-5"
+            >
+              Rating 
+              5
+            </label>
+            <input
+              class="rating__input"
+              id="star-6"
+              name="rating"
+              type="radio"
+              value="6"
+            />
+            <label
+              class="rating__label"
+              for="star-6"
+            >
+              Rating 
+              6
+            </label>
+            <input
+              class="rating__input"
+              id="star-7"
+              name="rating"
+              type="radio"
+              value="7"
+            />
+            <label
+              class="rating__label"
+              for="star-7"
+            >
+              Rating 
+              7
+            </label>
+            <input
+              class="rating__input"
+              id="star-8"
+              name="rating"
+              type="radio"
+              value="8"
+            />
+            <label
+              class="rating__label"
+              for="star-8"
+            >
+              Rating 
+              8
+            </label>
+            <input
+              class="rating__input"
+              id="star-9"
+              name="rating"
+              type="radio"
+              value="9"
+            />
+            <label
+              class="rating__label"
+              for="star-9"
+            >
+              Rating 
+              9
+            </label>
+            <input
+              class="rating__input"
+              id="star-10"
+              name="rating"
+              type="radio"
+              value="10"
+            />
+            <label
+              class="rating__label"
+              for="star-10"
+            >
+              Rating 
+              10
+            </label>
+          </div>
+        </div>
+        <div
+          class="add-review__text"
+        >
+          <textarea
+            class="add-review__textarea"
+            id="review-text"
+            name="review-text"
+            placeholder="Review text"
+            required=""
+          />
+          <div
+            class="add-review__submit"
+          >
+            <button
+              class="add-review__btn"
+              type="submit"
+            >
+              Post
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`AddReviewPage component Should render according to the snapshot with no movie found 1`] = `<div />`;
+
+exports[`AddReviewPage component Should render according to the snapshot with pending movies request 1`] = `
+<div>
+  <div
+    class="container container--centered"
+  >
+    <div
+      class="spinner-loading"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AddReviewPage component Should render according to the snapshot with rejected movies request 1`] = `
+<div>
+  <div
+    class="container container--centered"
+  >
+    <div
+      class="maintenance"
+    >
+      Maintenance, sorry...
+    </div>
+  </div>
+</div>
+`;

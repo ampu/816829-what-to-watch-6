@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrivateRoute component Should render 'SpinnerLoading' when login status is pending 1`] = `
+<div>
+  <div
+    class="container container--centered"
+  >
+    <div
+      class="spinner-loading"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>
+</div>
+`;

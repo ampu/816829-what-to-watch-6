@@ -53,6 +53,10 @@ export default class ApiProvider {
     this._client = createApiClient(onUnauthorized);
   }
 
+  getClient() {
+    return this._client;
+  }
+
   getCancellation() {
     return axios.CancelToken.source();
   }

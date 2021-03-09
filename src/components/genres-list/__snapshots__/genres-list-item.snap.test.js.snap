@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GenresListItem component Should render according to the snapshot while active 1`] = `
+<div>
+  <li
+    class="catalog__genres-item catalog__genres-item--active"
+  >
+    <a
+      class="catalog__genres-link"
+      href="/"
+    >
+      fakeGenre
+    </a>
+  </li>
+</div>
+`;
+
+exports[`GenresListItem component Should render according to the snapshot while inactive 1`] = `
+<div>
+  <li
+    class="catalog__genres-item"
+  >
+    <a
+      class="catalog__genres-link"
+      href="/"
+    >
+      fakeGenre
+    </a>
+  </li>
+</div>
+`;

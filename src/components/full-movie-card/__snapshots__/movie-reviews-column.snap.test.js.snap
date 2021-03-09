@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieReviewsColumn component Should render according to the snapshot with no reviews provided 1`] = `
+<div>
+  <div
+    class="movie-card__reviews-col"
+  />
+</div>
+`;
+
+exports[`MovieReviewsColumn component Should render according to the snapshot with reviews provided 1`] = `
+<div>
+  <div
+    class="movie-card__reviews-col"
+  >
+    <div
+      class="review"
+    >
+      <blockquote
+        class="review__quote"
+      >
+        <p
+          class="review__text"
+        >
+          fakeText
+        </p>
+        <footer
+          class="review__details"
+        >
+          <cite
+            class="review__author"
+          >
+            fakeUserName
+          </cite>
+          <time
+            class="review__date"
+            datetime="2020-03-09"
+          >
+            March 09, 2020
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        class="review__rating"
+      >
+        9,9
+      </div>
+    </div>
+    <div
+      class="review"
+    >
+      <blockquote
+        class="review__quote"
+      >
+        <p
+          class="review__text"
+        >
+          fakeText
+        </p>
+        <footer
+          class="review__details"
+        >
+          <cite
+            class="review__author"
+          >
+            fakeUserName
+          </cite>
+          <time
+            class="review__date"
+            datetime="2020-03-09"
+          >
+            March 09, 2020
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        class="review__rating"
+      >
+        9,9
+      </div>
+    </div>
+    <div
+      class="review"
+    >
+      <blockquote
+        class="review__quote"
+      >
+        <p
+          class="review__text"
+        >
+          fakeText
+        </p>
+        <footer
+          class="review__details"
+        >
+          <cite
+            class="review__author"
+          >
+            fakeUserName
+          </cite>
+          <time
+            class="review__date"
+            datetime="2020-03-09"
+          >
+            March 09, 2020
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        class="review__rating"
+      >
+        9,9
+      </div>
+    </div>
+  </div>
+</div>
+`;

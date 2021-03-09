@@ -8,9 +8,11 @@ import OperationStatus from '../../constants/operation-status';
 import {selectLoginStatus, selectUser} from '../../store/selectors/user-selectors';
 
 import operationStatusType from '../../typings/operation-status-type';
-import userType from '../../typings/user-type';
+import {userType} from '../../typings/user-type';
 
-const UserBlock = ({loginStatus, user}) => {
+import './user-block.css';
+
+const UserBlock = ({loginStatus, user = {}}) => {
   return (
     <div className="user-block">
       {loginStatus === OperationStatus.RESOLVED && (

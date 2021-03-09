@@ -1,11 +1,11 @@
-import {useState, useCallback, useEffect} from 'react';
+import {useState, useCallback, useEffect, useRef} from 'react';
 
 import OperationStatus from '../constants/operation-status';
 import provider from '../providers/provider';
 
 const usePostReview = (movieId) => {
   const [status, setStatus] = useState(OperationStatus.UNSET);
-  const [cancellation] = useState(provider.getCancellation());
+  const cancellation = useRef(provider.getCancellation()).current;
 
   const postReview = useCallback((localReview) => {
     setStatus(OperationStatus.PENDING);
@@ -13,8 +13,8 @@ const usePostReview = (movieId) => {
       .then(() => {
         setStatus(OperationStatus.RESOLVED);
       })
-      .catch((error) => {
-        if (provider.isCancelled(error)) {
+      .catch((_error) => {
+        if (cancellation.token.reason) {
           return;
         }
         setStatus(OperationStatus.REJECTED);

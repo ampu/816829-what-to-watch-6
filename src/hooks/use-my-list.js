@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 
 import OperationStatus from '../constants/operation-status';
 import provider from '../providers/provider';
@@ -6,7 +6,7 @@ import provider from '../providers/provider';
 const useMyList = () => {
   const [movies, setMovies] = useState([]);
   const [moviesStatus, setMoviesStatus] = useState(OperationStatus.PENDING);
-  const [cancellation] = useState(provider.getCancellation());
+  const cancellation = useRef(provider.getCancellation()).current;
 
   useEffect(() => {
     provider.getMyList(cancellation)
@@ -14,8 +14,8 @@ const useMyList = () => {
         setMovies(newMovies);
         setMoviesStatus(OperationStatus.RESOLVED);
       })
-      .catch((error) => {
-        if (provider.isCancelled(error)) {
+      .catch((_error) => {
+        if (cancellation.token.reason) {
           return;
         }
         setMoviesStatus(OperationStatus.REJECTED);

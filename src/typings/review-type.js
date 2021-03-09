@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
 
-import userType from './user-type';
+import {userShape} from './user-type';
 
-export default {
+const reviewType = {
   id: PropTypes.string.isRequired,
-  user: PropTypes.shape(userType),
+  user: userShape,
   rating: PropTypes.number,
   text: PropTypes.string,
   date: PropTypes.string,
 };
+
+const reviewShape = PropTypes.shape(reviewType);
+
+export {reviewType, reviewShape};

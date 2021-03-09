@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SmallMovieCard component Should render according to the snapshot 1`] = `
+<div>
+  <article
+    class="small-movie-card catalog__movies-card"
+  >
+    <div
+      class="small-movie-card__image"
+    >
+      <img
+        alt=""
+        height="175"
+        src="fakePreview"
+        width="280"
+      />
+    </div>
+    <h3
+      class="small-movie-card__title"
+    >
+      <a
+        class="small-movie-card__link"
+        href="/films/fakeId"
+      />
+    </h3>
+  </article>
+</div>
+`;

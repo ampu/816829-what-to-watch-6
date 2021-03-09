@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieInfoNavigation component Should render according to the snapshot while at '/' url 1`] = `
+<div>
+  <nav
+    class="movie-nav movie-card__nav"
+  >
+    <ul
+      class="movie-nav__list"
+    >
+      <li
+        class="movie-nav__item"
+      >
+        <a
+          class="movie-nav__link"
+          href="/films/fakeId"
+        >
+          Overview
+        </a>
+      </li>
+      <li
+        class="movie-nav__item"
+      >
+        <a
+          class="movie-nav__link"
+          href="/films/fakeId/details"
+        >
+          Details
+        </a>
+      </li>
+      <li
+        class="movie-nav__item"
+      >
+        <a
+          class="movie-nav__link"
+          href="/films/fakeId/reviews"
+        >
+          Reviews
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`MovieInfoNavigation component Should render according to the snapshot while at '/films/:id' url 1`] = `
+<div>
+  <nav
+    class="movie-nav movie-card__nav"
+  >
+    <ul
+      class="movie-nav__list"
+    >
+      <li
+        class="movie-nav__item movie-nav__item--active"
+      >
+        <a
+          class="movie-nav__link"
+          href="/films/fakeId"
+        >
+          Overview
+        </a>
+      </li>
+      <li
+        class="movie-nav__item"
+      >
+        <a
+          class="movie-nav__link"
+          href="/films/fakeId/details"
+        >
+          Details
+        </a>
+      </li>
+      <li
+        class="movie-nav__item"
+      >
+        <a
+          class="movie-nav__link"
+          href="/films/fakeId/reviews"
+        >
+          Reviews
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`MovieInfoNavigation component Should render according to the snapshot while at '/films/:id/details' url 1`] = `
+<div>
+  <nav
+    class="movie-nav movie-card__nav"
+  >
+    <ul
+      class="movie-nav__list"
+    >
+      <li
+        class="movie-nav__item"
+      >
+        <a
+          class="movie-nav__link"
+          href="/films/fakeId"
+        >
+          Overview
+        </a>
+      </li>
+      <li
+        class="movie-nav__item movie-nav__item--active"
+      >
+        <a
+          class="movie-nav__link"
+          href="/films/fakeId/details"
+        >
+          Details
+        </a>
+      </li>
+      <li
+        class="movie-nav__item"
+      >
+        <a
+          class="movie-nav__link"
+          href="/films/fakeId/reviews"
+        >
+          Reviews
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`MovieInfoNavigation component Should render according to the snapshot while at '/films/:id/reviews' url 1`] = `
+<div>
+  <nav
+    class="movie-nav movie-card__nav"
+  >
+    <ul
+      class="movie-nav__list"
+    >
+      <li
+        class="movie-nav__item"
+      >
+        <a
+          class="movie-nav__link"
+          href="/films/fakeId"
+        >
+          Overview
+        </a>
+      </li>
+      <li
+        class="movie-nav__item"
+      >
+        <a
+          class="movie-nav__link"
+          href="/films/fakeId/details"
+        >
+          Details
+        </a>
+      </li>
+      <li
+        class="movie-nav__item movie-nav__item--active"
+      >
+        <a
+          class="movie-nav__link"
+          href="/films/fakeId/reviews"
+        >
+          Reviews
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;

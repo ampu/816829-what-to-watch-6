@@ -6,7 +6,7 @@ import {MoviePath} from '../../constants/paths';
 
 import MovieInfoNavigationItem from './movie-info-navigation-item';
 
-import movieType from '../../typings/movie-type';
+import {movieType} from '../../typings/movie-type';
 
 const MovieInfoNavigation = ({movie}) => {
   return (

@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserBlock component Should render according to the snapshot while authorization status is unknown 1`] = `
+<div>
+  <div
+    class="user-block"
+  />
+</div>
+`;
+
+exports[`UserBlock component Should render according to the snapshot while authorization status is unknown 2`] = `
+<div>
+  <div
+    class="user-block"
+  />
+</div>
+`;
+
+exports[`UserBlock component Should render according to the snapshot while authorization status is unknown 3`] = `
+<div>
+  <div
+    class="user-block"
+  />
+</div>
+`;
+
+exports[`UserBlock component Should render according to the snapshot while logged in 1`] = `
+<div>
+  <div
+    class="user-block"
+  >
+    <div
+      class="user-block__avatar"
+    >
+      <a
+        href="/mylist"
+      >
+        <img
+          alt="User avatar"
+          height="63"
+          src="fakeAvatar"
+          width="63"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`UserBlock component Should render according to the snapshot while not logged in 1`] = `
+<div>
+  <div
+    class="user-block"
+  >
+    <a
+      class="user-block__link"
+      href="/login"
+    >
+      Sign in
+    </a>
+  </div>
+</div>
+`;

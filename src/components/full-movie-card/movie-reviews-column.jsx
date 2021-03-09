@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import MovieReview from './movie-review';
 
-import reviewType from '../../typings/review-type';
+import {reviewShape} from '../../typings/review-type';
 
 const MovieReviewsColumn = ({reviews = []} = {}) => {
   return (
@@ -14,9 +14,7 @@ const MovieReviewsColumn = ({reviews = []} = {}) => {
 };
 
 MovieReviewsColumn.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.shape({
-    id: reviewType.id,
-  }).isRequired),
+  reviews: PropTypes.arrayOf(reviewShape.isRequired),
 };
 
 export default MovieReviewsColumn;

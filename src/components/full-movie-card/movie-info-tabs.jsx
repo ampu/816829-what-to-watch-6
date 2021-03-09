@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import {MoviePath} from '../../constants/paths';
 import {useMatchPath} from '../../hooks/use-match-path';
@@ -8,7 +7,7 @@ import MovieOverview from './movie-overview';
 import MovieDetails from './movie-details';
 import MovieReviews from './movie-reviews';
 
-import movieType from '../../typings/movie-type';
+import {movieShape} from '../../typings/movie-type';
 
 const MovieInfoTabs = ({movie}) => {
   return <>
@@ -19,7 +18,7 @@ const MovieInfoTabs = ({movie}) => {
 };
 
 MovieInfoTabs.propTypes = {
-  movie: PropTypes.shape(movieType),
+  movie: movieShape,
 };
 
 export default MovieInfoTabs;

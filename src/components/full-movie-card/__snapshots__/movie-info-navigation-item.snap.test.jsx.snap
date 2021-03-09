@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieInfoNavigationItem component Should render according to the snapshot with no path match 1`] = `
+<div>
+  <li
+    class="movie-nav__item"
+  >
+    <a
+      class="movie-nav__link"
+      href="/fakePath"
+    >
+      fakeTitle
+    </a>
+  </li>
+</div>
+`;
+
+exports[`MovieInfoNavigationItem component Should render according to the snapshot with path match 1`] = `
+<div>
+  <li
+    class="movie-nav__item movie-nav__item--active"
+  >
+    <a
+      class="movie-nav__link"
+      href="/fakePath"
+    >
+      fakeTitle
+    </a>
+  </li>
+</div>
+`;

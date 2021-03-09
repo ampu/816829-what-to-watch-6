@@ -8,7 +8,7 @@ import MovieReviewsColumn from './movie-reviews-column';
 import SpinnerLoading from '../spinner-loading/spinner-loading';
 import Maintenance from '../maintenance/maintenance';
 
-import movieType from '../../typings/movie-type';
+import {movieType} from '../../typings/movie-type';
 
 import './movie-reviews.css';
 
@@ -20,7 +20,7 @@ const MovieReviews = ({movie}) => {
 
   if (reviewsStatus === OperationStatus.PENDING) {
     return (
-      <div className="movie-card__reviews">
+      <div className="movie-card__reviews" data-testid="reviews">
         <SpinnerLoading isInverse/>
       </div>
     );
@@ -28,7 +28,7 @@ const MovieReviews = ({movie}) => {
 
   if (reviewsStatus === OperationStatus.REJECTED) {
     return (
-      <div className="movie-card__reviews">
+      <div className="movie-card__reviews" data-testid="reviews">
         <Maintenance isInverse>
           Reviews are temporary unavailable...
         </Maintenance>
@@ -38,14 +38,14 @@ const MovieReviews = ({movie}) => {
 
   if (reviews.length === 0) {
     return (
-      <div className="movie-card__reviews movie-card__reviews--empty">
+      <div className="movie-card__reviews movie-card__reviews--empty" data-testid="reviews">
         No one left a comment.
       </div>
     );
   }
 
   return (
-    <div className="movie-card__reviews movie-card__row">
+    <div className="movie-card__reviews movie-card__row" data-testid="reviews">
       <MovieReviewsColumn reviews={reviews.filter(filterLeft)}/>
       <MovieReviewsColumn reviews={reviews.filter(filterRight)}/>
     </div>

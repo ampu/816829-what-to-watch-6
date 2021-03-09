@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Maintenance component Should render according to the snapshot 1`] = `
+<div>
+  <div
+    class="maintenance"
+  >
+    Maintenance, sorry...
+  </div>
+</div>
+`;
+
+exports[`Maintenance component Should render according to the snapshot when children are provided 1`] = `
+<div>
+  <div
+    class="maintenance"
+  >
+    Hello World!
+  </div>
+</div>
+`;
+
+exports[`Maintenance component Should render according to the snapshot when isInverse equals to true 1`] = `
+<div>
+  <div
+    class="maintenance maintenance--inverse"
+  >
+    Maintenance, sorry...
+  </div>
+</div>
+`;

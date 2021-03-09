@@ -17,10 +17,10 @@ import SpinnerLoading from '../spinner-loading/spinner-loading';
 import Maintenance from '../maintenance/maintenance';
 import Container from '../container/container';
 
-import './player.css';
-
 import operationStatusType from '../../typings/operation-status-type';
-import movieType from '../../typings/movie-type';
+import {movieType} from '../../typings/movie-type';
+
+import './player.css';
 
 const Player = ({moviesStatus, movie = {}}) => {
 

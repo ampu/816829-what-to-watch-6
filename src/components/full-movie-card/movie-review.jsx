@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import {BORDER_BOTTOM_STYLE} from '../../constants/styles';
 import {formatRating} from '../../utils/movie-util';
 import {formatDate} from '../../utils/date-util';
 
-import reviewType from '../../typings/review-type';
+import {reviewShape} from '../../typings/review-type';
 
 const MovieReview = ({review = {}}) => {
   const {
@@ -15,6 +14,8 @@ const MovieReview = ({review = {}}) => {
     rating = 0,
   } = review;
 
+  const formattedDate = formatDate(date, `YYYY-MM-DD`);
+
   return (
     <div className="review" style={BORDER_BOTTOM_STYLE}>
       <blockquote className="review__quote">
@@ -22,8 +23,8 @@ const MovieReview = ({review = {}}) => {
 
         <footer className="review__details">
           {user.name && <cite className="review__author">{user.name}</cite>}
-          {date && (
-            <time className="review__date" dateTime={formatDate(date, `YYYY-MM-DD`)}>
+          {formattedDate && (
+            <time className="review__date" dateTime={formattedDate}>
               {formatDate(date, `MMMM DD, YYYY`)}
             </time>
           )}
@@ -36,7 +37,7 @@ const MovieReview = ({review = {}}) => {
 };
 
 MovieReview.propTypes = {
-  review: PropTypes.shape(reviewType),
+  review: reviewShape,
 };
 
 export default MovieReview;

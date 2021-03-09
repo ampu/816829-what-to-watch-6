@@ -5,7 +5,7 @@ import getClassName from 'classnames';
 
 import {MainPath} from '../../constants/paths';
 
-import movieType from '../../typings/movie-type';
+import {movieType} from '../../typings/movie-type';
 
 const GenresListItem = ({genre, onGenreChange, isActive = false}) => {
 

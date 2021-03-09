@@ -2,7 +2,7 @@ import React, {useMemo, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import getClassName from 'classnames';
 
-import movieType from '../../typings/movie-type';
+import {movieType} from '../../typings/movie-type';
 import {useMyList} from '../../hooks/use-my-list';
 import OperationStatus from '../../constants/operation-status';
 import BorderSpinner from '../border-spinner/border-spinner';

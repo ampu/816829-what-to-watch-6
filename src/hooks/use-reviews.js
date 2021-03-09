@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 
 import OperationStatus from '../constants/operation-status';
 import provider from '../providers/provider';
@@ -6,7 +6,7 @@ import provider from '../providers/provider';
 const useReviews = (movieId) => {
   const [reviews, setReviews] = useState([]);
   const [reviewsStatus, setReviewsStatus] = useState(OperationStatus.PENDING);
-  const [cancellation] = useState(provider.getCancellation());
+  const cancellation = useRef(provider.getCancellation()).current;
 
   useEffect(() => {
     provider.getReviews(movieId, cancellation)

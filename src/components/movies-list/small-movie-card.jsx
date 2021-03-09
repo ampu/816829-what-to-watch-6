@@ -10,7 +10,7 @@ import Container from '../container/container';
 
 import './small-movie-card.css';
 
-import movieType from '../../typings/movie-type';
+import {movieType} from '../../typings/movie-type';
 
 const PLAY_TIMEOUT = 1000;
 
@@ -81,10 +81,11 @@ const SmallMovieCard = ({movie = {}}) => {
 
 SmallMovieCard.propTypes = {
   movie: PropTypes.shape({
+    id: movieType.id,
     title: movieType.title,
     preview: movieType.preview.isRequired,
     videoPreview: movieType.videoPreview.isRequired,
-  }),
+  }).isRequired,
   isActive: PropTypes.bool,
 };
 

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpinnerLoading component Should render according to the snapshot 1`] = `
+<div>
+  <div
+    class="spinner-loading"
+  >
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`SpinnerLoading component Should render according to the snapshot when isInverse equals to true 1`] = `
+<div>
+  <div
+    class="spinner-loading spinner-loading--inverse"
+  >
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+</div>
+`;

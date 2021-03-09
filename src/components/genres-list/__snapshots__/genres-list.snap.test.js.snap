@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GenresList component Should render according to the snapshot with genres provided 1`] = `
+<div>
+  <ul
+    class="catalog__genres-list"
+  >
+    <li
+      class="catalog__genres-item"
+    >
+      <a
+        class="catalog__genres-link"
+        href="/"
+      >
+        Main
+      </a>
+    </li>
+    <li
+      class="catalog__genres-item catalog__genres-item--active"
+    >
+      <a
+        class="catalog__genres-link"
+        href="/"
+      >
+        Auxiliary
+      </a>
+    </li>
+  </ul>
+  ;
+</div>
+`;
+
+exports[`GenresList component Should render according to the snapshot with no genres 1`] = `
+<div>
+  <ul
+    class="catalog__genres-list"
+  />
+</div>
+`;

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container component Should render according to the snapshot 1`] = `
+<div>
+  <div
+    class="container"
+  />
+</div>
+`;
+
+exports[`Container component Should render according to the snapshot while extra properties provided 1`] = `
+<div>
+  <div
+    class="container container--centered container--absolute"
+  >
+    fakeChildren
+  </div>
+</div>
+`;

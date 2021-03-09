@@ -9,7 +9,7 @@ import {MoviePath} from '../../constants/paths';
 
 import AddReviewStarList from './add-review-star-list';
 
-import movieType from '../../typings/movie-type';
+import {movieType} from '../../typings/movie-type';
 
 import './add-review-form.css';
 
@@ -76,7 +76,7 @@ const AddReviewForm = ({movie}) => {
 AddReviewForm.propTypes = {
   movie: PropTypes.shape({
     id: movieType.id,
-  }),
+  }).isRequired,
 };
 
 export default AddReviewForm;

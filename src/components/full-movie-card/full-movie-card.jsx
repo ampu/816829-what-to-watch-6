@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Link, Redirect, generatePath} from 'react-router-dom';
 import {connect} from 'react-redux';
 
@@ -23,7 +22,7 @@ import Container from '../container/container';
 import Footer from '../footer/footer';
 
 import operationStatusType from '../../typings/operation-status-type';
-import movieType from '../../typings/movie-type';
+import {movieShape} from '../../typings/movie-type';
 
 const FullMovieCard = ({loginStatus, moviesStatus, movie = {}, alikeMovies = []}) => {
 
@@ -97,7 +96,7 @@ const FullMovieCard = ({loginStatus, moviesStatus, movie = {}, alikeMovies = []}
 FullMovieCard.propTypes = {
   loginStatus: operationStatusType,
   moviesStatus: operationStatusType,
-  movie: PropTypes.shape(movieType),
+  movie: movieShape,
   alikeMovies: OriginalMoviesList.propTypes.movies,
 };
 

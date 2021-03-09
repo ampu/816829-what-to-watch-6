@@ -1,4 +1,4 @@
-import {useState, useCallback, useEffect} from 'react';
+import {useState, useCallback, useEffect, useRef} from 'react';
 
 import OperationStatus from '../constants/operation-status';
 import provider from '../providers/provider';
@@ -6,7 +6,7 @@ import provider from '../providers/provider';
 const useFavoriteMovieToggle = (movieId) => {
   const [status, setStatus] = useState(OperationStatus.UNSET);
   const [isActive, setActive] = useState();
-  const [cancellation] = useState(provider.getCancellation());
+  const cancellation = useRef(provider.getCancellation()).current;
 
   const toggleFavorite = useCallback((force) => {
     setStatus(OperationStatus.PENDING);
@@ -15,8 +15,8 @@ const useFavoriteMovieToggle = (movieId) => {
         setActive(movie.isFavorite);
         setStatus(OperationStatus.RESOLVED);
       })
-      .catch((error) => {
-        if (provider.isCancelled(error)) {
+      .catch((_error) => {
+        if (cancellation.token.reason) {
           return;
         }
         setStatus(OperationStatus.REJECTED);

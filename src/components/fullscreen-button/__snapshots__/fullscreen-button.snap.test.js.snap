@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FullscreenButton component Should render according to the snapshot 1`] = `
+<div>
+  <button
+    type="button"
+  >
+    <svg
+      height="27"
+      viewBox="0 0 27 27"
+      width="27"
+    >
+      <use
+        xlink:href="#full-screen"
+      />
+    </svg>
+    <span>
+      Full screen
+    </span>
+  </button>
+</div>
+`;

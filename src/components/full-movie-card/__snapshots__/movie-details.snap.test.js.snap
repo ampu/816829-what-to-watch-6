@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetails component Should render according to the snapshot with movie provided 1`] = `
+<div>
+  <div
+    class="movie-card__text movie-card__row"
+  >
+    <div
+      class="movie-card__text-col"
+    >
+      <p
+        class="movie-card__details-item"
+      >
+        <strong
+          class="movie-card__details-name"
+        >
+          Director
+        </strong>
+        <span
+          class="movie-card__details-value"
+        >
+          fakeDirector
+        </span>
+      </p>
+      <p
+        class="movie-card__details-item"
+      >
+        <strong
+          class="movie-card__details-name"
+        >
+          Starring
+        </strong>
+        <span
+          class="movie-card__details-value movie-card__details-value--stars"
+        >
+          fakeStarOne,
+fakeStarTwo
+        </span>
+      </p>
+    </div>
+    <div
+      class="movie-card__text-col"
+    >
+      <p
+        class="movie-card__details-item"
+      >
+        <strong
+          class="movie-card__details-name"
+        >
+          Run Time
+        </strong>
+        <span
+          class="movie-card__details-value"
+        >
+          1h 10m
+        </span>
+      </p>
+      <p
+        class="movie-card__details-item"
+      >
+        <strong
+          class="movie-card__details-name"
+        >
+          Genre
+        </strong>
+        <span
+          class="movie-card__details-value"
+        >
+          fakeGenre
+        </span>
+      </p>
+      <p
+        class="movie-card__details-item"
+      >
+        <strong
+          class="movie-card__details-name"
+        >
+          Released
+        </strong>
+        <span
+          class="movie-card__details-value"
+        >
+          2021
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MovieDetails component Should render according to the snapshot with no movie provided 1`] = `
+<div>
+  <div
+    class="movie-card__text movie-card__row"
+  >
+    <div
+      class="movie-card__text-col"
+    >
+      
+    </div>
+    <div
+      class="movie-card__text-col"
+    >
+      
+    </div>
+  </div>
+</div>
+`;

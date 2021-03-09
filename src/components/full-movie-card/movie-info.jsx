@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import MoviePoster from '../movie-poster/movie-poster';
 import MovieInfoNavigation from './movie-info-navigation';
 import MovieInfoTabs from './movie-info-tabs';
 
-import movieType from '../../typings/movie-type';
+import {movieShape} from '../../typings/movie-type';
 
 const MovieInfo = ({movie = {}, posterSize} = {}) => {
 
@@ -22,7 +21,7 @@ const MovieInfo = ({movie = {}, posterSize} = {}) => {
 };
 
 MovieInfo.propTypes = {
-  movie: PropTypes.shape(movieType),
+  movie: movieShape,
   posterSize: MoviePoster.propTypes.size,
 };
 

@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import {HashRouter as Router, Switch, Route} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 
 import {MainPath, MOVIE_PATHS} from '../../constants/paths';
 
@@ -22,23 +22,21 @@ const App = () => {
   const renderAddReview = useCallback(({match}) => <AddReviewPage movieId={match.params.id}/>, []);
 
   return (
-    <Router>
-      <Switch>
-        <Route exact path={MainPath.INDEX}>
-          <Main/>
-        </Route>
-        <Route exact path={MainPath.SIGN_IN}>
-          <SignIn/>
-        </Route>
-        <Route exact path={MOVIE_PATHS} render={renderFullMovieCard}/>
-        <Route exact path={MainPath.PLAYER} render={renderPlayer}/>
-        <PrivateRoute exact path={MainPath.MY_LIST} render={renderMyList}/>
-        <PrivateRoute exact path={MainPath.ADD_REVIEW} render={renderAddReview}/>
-        <Route path="*">
-          <NotFound/>
-        </Route>
-      </Switch>
-    </Router>
+    <Switch>
+      <Route exact path={MainPath.INDEX}>
+        <Main/>
+      </Route>
+      <Route exact path={MainPath.SIGN_IN}>
+        <SignIn/>
+      </Route>
+      <Route exact path={MOVIE_PATHS} render={renderFullMovieCard}/>
+      <Route exact path={MainPath.PLAYER} render={renderPlayer}/>
+      <PrivateRoute exact path={MainPath.MY_LIST} render={renderMyList}/>
+      <PrivateRoute exact path={MainPath.ADD_REVIEW} render={renderAddReview}/>
+      <Route path="*">
+        <NotFound/>
+      </Route>
+    </Switch>
   );
 };
 

@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieOverview component Should render according to the snapshot with movie provided 1`] = `
+<div>
+  <div
+    class="movie-rating"
+  >
+    <div
+      class="movie-rating__score"
+    >
+      9,9
+    </div>
+    <p
+      class="movie-rating__meta"
+    >
+      <span
+        class="movie-rating__level"
+      />
+      <span
+        class="movie-rating__count"
+      >
+        15 667
+         ratings
+      </span>
+    </p>
+  </div>
+  <div
+    class="movie-card__text"
+  >
+    <p>
+      fakeDescription
+    </p>
+    <p
+      class="movie-card__director"
+    >
+      <strong>
+        Director: 
+        fakeDirector
+      </strong>
+    </p>
+    <p
+      class="movie-card__starring"
+    >
+      <strong>
+        Starring: 
+        fakeStarOne, fakeStarTwo
+      </strong>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`MovieOverview component Should render according to the snapshot with no movie provided 1`] = `
+<div>
+  <div
+    class="movie-card__text"
+  >
+    
+    
+  </div>
+</div>
+`;
